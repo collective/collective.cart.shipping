@@ -1,6 +1,11 @@
 from Products.CMFCore.utils import getToolByName
 
 
+def installProductsATCountryWidget(portal):
+    installer = getToolByName(portal, 'portal_quickinstaller')
+    installer.installProduct('Products.ATCountryWidget')
+
+
 def setupContentTypeProperties(portal):
     names = ['ShippingMethod']
     for name in names:
@@ -33,3 +38,4 @@ def setupVarious(context):
 
     portal = context.getSite()
     setupContentTypeProperties(portal)
+    installProductsATCountryWidget(portal)

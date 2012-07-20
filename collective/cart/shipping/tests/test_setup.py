@@ -21,6 +21,10 @@ class TestSetup(IntegrationTestCase):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('collective.cart.shipping'))
 
+    def test_Products_ATCountryWidget_installed(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        self.failUnless(installer.isProductInstalled('Products.ATCountryWidget'))
+
     def test_factorytool__ShippingMethod(self):
         factory = getToolByName(self.portal, 'portal_factory')
         self.assertTrue(factory.getFactoryTypes()['ShippingMethod'])
