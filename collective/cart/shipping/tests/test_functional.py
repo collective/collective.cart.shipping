@@ -1,6 +1,4 @@
 from Testing import ZopeTestCase as ztc
-from collective.cart.core.content.product import ProductAnnotations
-from collective.cart.core.interfaces import IAddableToCart, IProduct
 from collective.cart.shipping.tests.base import FUNCTIONAL_TESTING
 from decimal import Decimal
 from hexagonit.testing.browser import Browser
@@ -46,28 +44,28 @@ def setUp(self):
 
     setRoles(portal, TEST_USER_ID, ['Manager'])
 
-    portal.invokeFactory(
-        'CartFolder',
-        'cfolder',
-    )
-    cfolder = portal.cfolder
-    cfolder.reindexObject()
-    portal.invokeFactory(
-        'Document',
-        'doc01',
-        title='Document01'
-    )
-    doc01 = portal.doc01
-    doc01.reindexObject()
-    self.globs['doc01_url'] = doc01.absolute_url()
-    self.globs['cart_url'] = '{0}/@@cart'.format(portal_url)
-    alsoProvides(doc01, IAddableToCart)
-    IAnnotations(doc01)['collective.cart.core'] = ProductAnnotations()
-    product01 = IProduct(doc01)
-    product01.price = Decimal('10.00')
-    product01.stock = 20
-    product01.unlimited_stock = False
-    product01.max_addable_quantity = 30
+    # portal.invokeFactory(
+    #     'CartFolder',
+    #     'cfolder',
+    # )
+    # cfolder = portal.cfolder
+    # cfolder.reindexObject()
+    # portal.invokeFactory(
+    #     'Document',
+    #     'doc01',
+    #     title='Document01'
+    # )
+    # doc01 = portal.doc01
+    # doc01.reindexObject()
+    # self.globs['doc01_url'] = doc01.absolute_url()
+    # self.globs['cart_url'] = '{0}/@@cart'.format(portal_url)
+    # alsoProvides(doc01, IAddableToCart)
+    # IAnnotations(doc01)['collective.cart.core'] = ProductAnnotations()
+    # product01 = IProduct(doc01)
+    # product01.price = Decimal('10.00')
+    # product01.stock = 20
+    # product01.unlimited_stock = False
+    # product01.max_addable_quantity = 30
 
     transaction.commit()
 

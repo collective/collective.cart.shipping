@@ -1,6 +1,6 @@
-from zope.i18nmessageid import MessageFactory
 from Products.Archetypes import atapi
 from Products.CMFCore import utils
+from zope.i18nmessageid import MessageFactory
 
 
 ADD_PERMISSIONS = {

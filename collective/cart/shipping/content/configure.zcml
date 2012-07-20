@@ -1,12 +1,14 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="collective.cart.shipping"
     xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="collective.cart.shipping">
+    xmlns="http://namespaces.zope.org/zope"
+    >
 
   <class class=".shipping.ShippingMethod">
     <require
+      interface="..interfaces.IShippingMethod"
       permission="zope2.View"
-      interface="..interfaces.IShippingMethodContentType" />
+      />
   </class>
 
 </configure>
