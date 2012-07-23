@@ -25,6 +25,11 @@ class TestSetup(IntegrationTestCase):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('Products.ATCountryWidget'))
 
+    def test_browserlayer(self):
+        from collective.cart.shipping.browser.interfaces import ICollectiveCartShippingLayer
+        from plone.browserlayer import utils
+        self.assertIn(ICollectiveCartShippingLayer, utils.registered_layers())
+
     def test_factorytool__ShippingMethod(self):
         factory = getToolByName(self.portal, 'portal_factory')
         self.assertTrue(factory.getFactoryTypes()['ShippingMethod'])
@@ -106,3 +111,10 @@ class TestSetup(IntegrationTestCase):
     #     self.failUnless(not self.installer.isProductInstalled('collective.cart.shipping'))
     #     for typ in self.content_types:
     #         self.failIf(typ in self.types.objectIds())
+
+    def test_browserlayer(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        installer.uninstallProducts(['collective.cart.shipping'])
+        from collective.cart.shipping.browser.interfaces import ICollectiveCartShippingLayer
+        from plone.browserlayer import utils
+        self.assertNotIn(ICollectiveCartShippingLayer, utils.registered_layers())

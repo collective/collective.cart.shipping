@@ -38,6 +38,7 @@ setup(
         'Products.ATCountryWidget',
         'Products.PythonField',
         # 'collective.cart.core',
+        'five.grok',
         'hexagonit.testing',
         # 'pycountry',
         # 'plone.i18n',

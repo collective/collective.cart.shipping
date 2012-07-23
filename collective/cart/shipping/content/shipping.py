@@ -13,6 +13,7 @@ from Products.Archetypes.public import MultiSelectionWidget
 from Products.Archetypes.public import Schema
 from Products.Archetypes.public import TextAreaWidget
 from Products.Archetypes.public import registerType
+from Products.CMFCore.permissions import ModifyPortalContent
 from Products.PythonField import PythonField
 from collective.cart.shipping import PROJECTNAME
 from collective.cart.shipping import _
@@ -26,15 +27,14 @@ default_script = """
 ##bind container=container
 ##bind context=context
 ##bind subpath=traverse_subpath
-##parameters=fields, ploneformgen, request
+##parameters=article, request
 ##title=
 ##
 
 # Available parameters:
-#  fields  = HTTP request form fields as key value pairs
 #  request = The current HTTP request.
 #            Access fields by request.form["myfieldname"]
-#  ploneformgen = PloneFormGen object
+#  article = collective.cart.core.Article object
 #
 # Return value is not processed -- unless you
 # return a dictionary with contents. That's regarded
@@ -42,24 +42,16 @@ default_script = """
 # and return the user to the form. Error dictionaries
 # should be of the form {'field_id':'Error message'}
 
+def shipping_fee(weight):
+    return weight
 
-assert False, "Please complete your script"
+
+return shipping_fee
 
 """
 
 
 ShippingMethodSchema = ATContentTypeSchema.copy() + Schema((
-
-    LinesField(
-        name='from_country',
-        required=False,
-        searchable=False,
-        languageIndependent=True,
-        storage=AnnotationStorage(),
-        widget=MultiCountryWidget(
-            label=_(u'From Country'),
-            description=_(u'Select countries from which this shipping method is applied.'),
-            omitCountries=None,)),
 
     LinesField(
         name='to_country',
@@ -95,25 +87,27 @@ ShippingMethodSchema = ATContentTypeSchema.copy() + Schema((
             maxlength='2')),
 
    FloatField(
-        name='dimension_weight_ratio',
+        name='weight_dimension_rate',
         required=True,
         searchable=False,
         languageIndependent=True,
         storage=AnnotationStorage(),
         widget=DecimalWidget(
-            label=_(u'Dimention Weight Ratio'),
+            label=_(u'Weight Dimension Rate'),
             description=_(u'1 m3 = ??? kg')),
         default=250.0),
 
     PythonField(
-        name='ScriptBody',
+        name='shipping_fee',
         searchable=False,
         required=False,
         default=default_script,
+        # read_permission=ModifyPortalContent,
+        # write_permission=ModifyPortalContent,
         widget=TextAreaWidget(
-            label=_(u'Script body'),
+            label=_(u'Shipping Fee Script'),
             rows=10,
-            description = _(u'Write your script here.')))))
+            description = _(u'Script for calculationg shipping fee.')))))
 
 
 finalizeATCTSchema(ShippingMethodSchema, folderish=False, moveDiscussion=False)
@@ -128,11 +122,10 @@ class ShippingMethod(ATCTContent):
 
     schema = ShippingMethodSchema
 
-    from_country = ATFieldProperty('from_country')
     to_country = ATFieldProperty('to_country')
     min_delivery_days = ATFieldProperty('min_delivery_days')
     max_delivery_days = ATFieldProperty('max_delivery_days')
-    dimension_weight_ratio = ATFieldProperty('dimension_weight_ratio')
+    weight_dimension_rate = ATFieldProperty('weight_dimension_rate')
 
 
 registerType(ShippingMethod, PROJECTNAME)

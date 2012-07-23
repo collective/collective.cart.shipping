@@ -1,0 +1,6 @@
+<layers>
+  <layer
+    interface="collective.cart.shipping.browser.interfaces.ICollectiveCartShippingLayer"
+    name="collective.cart.shipping"
+    />
+</layers>
