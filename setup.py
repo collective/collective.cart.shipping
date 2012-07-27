@@ -37,11 +37,9 @@ setup(
     install_requires=[
         'Products.ATCountryWidget',
         'Products.PythonField',
-        # 'collective.cart.core',
+        'collective.behavior.vat',
         'five.grok',
         'hexagonit.testing',
-        # 'pycountry',
-        # 'plone.i18n',
         'setuptools'],
     entry_points="""
     # -*- Entry points: -*-

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <object name="portal_catalog" meta_type="Plone Catalog Tool">
 
-  <column value="from_country"/>
   <column value="to_country"/>
   <column value="min_delivery_days"/>
   <column value="max_delivery_days"/>
-  <column value="dimension_weight_ratio"/>
+  <column value="weight_dimension_rate"/>
+  <column value="vat"/>
 
 </object>

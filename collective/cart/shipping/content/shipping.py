@@ -9,16 +9,15 @@ from Products.Archetypes.public import FloatField
 from Products.Archetypes.public import IntegerField
 from Products.Archetypes.public import IntegerWidget
 from Products.Archetypes.public import LinesField
-from Products.Archetypes.public import MultiSelectionWidget
 from Products.Archetypes.public import Schema
+from Products.Archetypes.public import SelectionWidget
+from Products.Archetypes.public import StringField
 from Products.Archetypes.public import TextAreaWidget
 from Products.Archetypes.public import registerType
-from Products.CMFCore.permissions import ModifyPortalContent
 from Products.PythonField import PythonField
 from collective.cart.shipping import PROJECTNAME
 from collective.cart.shipping import _
 from collective.cart.shipping.interfaces import IShippingMethod
-from persistent import Persistent
 from zope.interface import implements
 
 
@@ -64,7 +63,7 @@ ShippingMethodSchema = ATContentTypeSchema.copy() + Schema((
             description=_(u'Select countries to which this shipping method is applied.'),
             omitCountries=None)),
 
-   IntegerField(
+    IntegerField(
         name='min_delivery_days',
         required=True,
         searchable=False,
@@ -75,7 +74,7 @@ ShippingMethodSchema = ATContentTypeSchema.copy() + Schema((
             size='2',
             maxlength='2')),
 
-   IntegerField(
+    IntegerField(
         name='max_delivery_days',
         required=True,
         searchable=False,
@@ -86,7 +85,7 @@ ShippingMethodSchema = ATContentTypeSchema.copy() + Schema((
             size='2',
             maxlength='2')),
 
-   FloatField(
+    FloatField(
         name='weight_dimension_rate',
         required=True,
         searchable=False,
@@ -97,17 +96,26 @@ ShippingMethodSchema = ATContentTypeSchema.copy() + Schema((
             description=_(u'1 m3 = ??? kg')),
         default=250.0),
 
+    StringField(
+        name="vat",
+        required=True,
+        searchable=False,
+        languageIndependent=True,
+        storage=AnnotationStorage(),
+        vocabulary_factory=u"collective.cart.shipping.vats",
+        enforceVocabulary=True,
+        widget=SelectionWidget(
+            label=_(u'VAT'))),
+
     PythonField(
         name='shipping_fee',
         searchable=False,
         required=False,
         default=default_script,
-        # read_permission=ModifyPortalContent,
-        # write_permission=ModifyPortalContent,
         widget=TextAreaWidget(
             label=_(u'Shipping Fee Script'),
             rows=10,
-            description = _(u'Script for calculationg shipping fee.')))))
+            description=_(u'Script for calculationg shipping fee.')))))
 
 
 finalizeATCTSchema(ShippingMethodSchema, folderish=False, moveDiscussion=False)
@@ -126,6 +134,7 @@ class ShippingMethod(ATCTContent):
     min_delivery_days = ATFieldProperty('min_delivery_days')
     max_delivery_days = ATFieldProperty('max_delivery_days')
     weight_dimension_rate = ATFieldProperty('weight_dimension_rate')
+    vat = ATFieldProperty('vat')
 
 
 registerType(ShippingMethod, PROJECTNAME)

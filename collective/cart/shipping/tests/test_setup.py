@@ -6,16 +6,6 @@ class TestSetup(IntegrationTestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        # self.installer = getToolByName(self.portal, 'portal_quickinstaller')
-        # self.properties = getToolByName(self.portal, 'portal_properties')
-        # self.site_properties = getattr(self.properties, 'site_properties')
-        # self.navtree_properties = getattr(self.properties, 'navtree_properties')
-        # self.catalog = getToolByName(self.portal, 'portal_catalog')
-        # self.content_types = [
-        #     'ShippingMethod',
-        # ]
-        # self.types = getToolByName(self.portal, 'portal_types')
-        # self.workflow = getToolByName(self.portal, 'portal_workflow')
 
     def test_collective_cart_shipping_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
@@ -24,6 +14,10 @@ class TestSetup(IntegrationTestCase):
     def test_Products_ATCountryWidget_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('Products.ATCountryWidget'))
+
+    def test_collective_behavior_vat_installed(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        self.failUnless(installer.isProductInstalled('collective.behavior.vat'))
 
     def test_browserlayer(self):
         from collective.cart.shipping.browser.interfaces import ICollectiveCartShippingLayer
@@ -105,14 +99,12 @@ class TestSetup(IntegrationTestCase):
     #     self.failUnless('max_delivery_days' in self.catalog.schema())
     #     self.failUnless('dimension_weight_ratio' in self.catalog.schema())
 
-    # ## Uninstalling
-    # def test_uninstall(self):
-    #     self.installer.uninstallProducts(['collective.cart.shipping'])
-    #     self.failUnless(not self.installer.isProductInstalled('collective.cart.shipping'))
-    #     for typ in self.content_types:
-    #         self.failIf(typ in self.types.objectIds())
+    def test_uninstall_package(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        installer.uninstallProducts(['collective.cart.shipping'])
+        self.assertFalse(installer.isProductInstalled('collective.cart.shipping'))
 
-    def test_browserlayer(self):
+    def test_uninstall_browserlayer(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         installer.uninstallProducts(['collective.cart.shipping'])
         from collective.cart.shipping.browser.interfaces import ICollectiveCartShippingLayer

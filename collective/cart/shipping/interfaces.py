@@ -23,3 +23,7 @@ class IShippingMethod(Interface):
         title=_(u"Weight Dimension Rate"),
         description=_(u"1 m3 = ??? kg"),
         required=False)
+
+    vat = schema.Choice(
+        title=_(u'VAT'),
+        vocabulary=u'collective.behavior.vat.vats')

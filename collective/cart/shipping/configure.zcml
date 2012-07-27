@@ -12,11 +12,8 @@
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
 
-  <include package=".browser" />
-  <include package=".content" />
-  <!-- <include package=".subscriber" />
-  <include package=".utility" /> -->
-
+  <!-- <include package=".browser" /> -->
+  <!-- <include package=".content" /> -->
 
   <genericsetup:registerProfile
     description="Installs the collective.cart.shipping package"

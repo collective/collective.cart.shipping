@@ -5,7 +5,7 @@
  <property name="title" i18n:translate="">Shipping Method</property>
  <property name="description"
      i18n:translate="">Shipping Method</property>
- <property name="content_icon"></property>
+ <property name="content_icon">++resource++collective.cart.shipping/shipping.png</property>
  <property name="content_meta_type">ShippingMethod</property>
  <property name="product">collective.cart.shipping</property>
  <property name="factory">addShippingMethod</property>
