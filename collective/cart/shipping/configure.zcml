@@ -12,9 +12,6 @@
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
 
-  <!-- <include package=".browser" /> -->
-  <!-- <include package=".content" /> -->
-
   <genericsetup:registerProfile
     description="Installs the collective.cart.shipping package"
     directory="profiles/default"
@@ -26,6 +23,11 @@
   <permission
     id="collective.cart.shipping.AddShippingMethod"
     title="collective.cart.shipping: Add ShippingMethod"
+    />
+
+  <permission
+    id="collective.cart.shipping.AddCartShippingMethod"
+    title="collective.cart.shipping: Add CartShippingMethod"
     />
 
 </configure>

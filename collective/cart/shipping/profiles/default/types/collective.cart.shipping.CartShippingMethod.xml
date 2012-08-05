@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<object
+  i18n:domain="collective.cart.shipping"
+  meta_type="Dexterity FTI"
+  name="collective.cart.shipping.CartShippingMethod"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  >
+
+  <!-- Basic properties -->
+  <property name="title" i18n:translate="">CartShippingMethod</property>
+  <property name="description" i18n:translate=""/>
+  <property name="content_icon"></property>
+  <property name="allow_discussion">False</property>
+
+  <!-- Hierarchy control -->
+  <property name="global_allow">False</property>
+  <property name="filter_content_types">True</property>
+  <property name="allowed_content_types" />
+
+  <!-- Schema, class and security -->
+  <property name="schema">collective.cart.shipping.interfaces.ICartShippingMethod</property>
+  <property name="klass">plone.dexterity.content.Container</property>
+  <property name="add_permission">collective.cart.shipping.AddCartShippingMethod</property>
+
+</object>

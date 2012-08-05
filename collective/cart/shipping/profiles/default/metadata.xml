@@ -3,5 +3,6 @@
   <version>0</version>
   <dependencies>
     <dependency>profile-collective.behavior.vat:default</dependency>
+    <dependency>profile-plone.app.dexterity:default</dependency>
   </dependencies>
 </metadata>

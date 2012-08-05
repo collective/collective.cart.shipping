@@ -40,6 +40,8 @@ setup(
         'collective.behavior.vat',
         'five.grok',
         'hexagonit.testing',
+        'plone.app.dexterity',
+        'plone.directives.form',
         'setuptools'],
     entry_points="""
     # -*- Entry points: -*-
