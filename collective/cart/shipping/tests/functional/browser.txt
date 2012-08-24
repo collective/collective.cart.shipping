@@ -5,6 +5,8 @@ Log in as Manager::
 Verify that we can create ShippingMethod under portal::
 
     >>> browser.open('/')
+    >>> print browser.bycss('#shipping-method-form')
+
     >>> browser.getLink(id='shippingmethod').url.endswith("createObject?type_name=ShippingMethod")
     True
 
@@ -40,6 +42,25 @@ Add ShippingMethod::
     </dl></div>
     </div>
 
+    >>> print browser.bycss('#shipping-method-form')
+    --- 1 ---
+    <section id="shipping-method-form"><form class="rowlike enableUnloadProtection   kssattr-formname-view" action="http://nohost/plone/shippingmethod1/view" method="post" id="form" enctype="multipart/form-data">
+    <!-- Default fieldset -->
+    <div class="field z3cformInlineValidation kssattr-fieldname-form.widgets.shipping_method" id="formfield-form-widgets-shipping_method">
+    <label for="form-widgets-shipping_method" class="horizontal">
+    Shipping Method
+    </label>
+    <span class="required horizontal" title="Required" style="color: red">
+    &#9632;
+    </span>
+    <div class="fieldErrorBox"></div>
+    <select id="form-widgets-shipping_method" name="form.widgets.shipping_method:list" class="select-widget required choice-field" size="1"><option id="form-widgets-shipping_method-0" value="...">ShippingMeth&#246;d1</option></select><input name="form.widgets.shipping_method-empty-marker" type="hidden" value="1"></div>
+    <!-- Secondary fieldsets -->
+    <div class="formControls">
+    <input id="form-buttons-update" name="form.buttons.update" class="submit-widget button-field" value="Update" type="submit"></div>
+    </form>
+    </section>
+
 Add one more ShoppingMethod::
 
     >>> browser.open('/createObject?type_name=ShippingMethod')
@@ -67,133 +88,3 @@ Add one more ShoppingMethod::
     <dd>2.0</dd>
     </dl></div>
     </div>
-
-#     >>> browser.url
-#     'http://nohost/plone/shippingmethod01'
-#     >>> browser.getLink('Edit').click()
-#     >>> 'value="ShippingMethod01"' in browser.contents
-#     True
-#     >>> 'Descripton of ShippingMethod01' in browser.contents
-#     True
-#     >>> 'selected="selected" value="FI"' in browser.contents
-#     True
-#     >>> 'selected="selected" value="US"' in browser.contents
-#     True
-#     >>> 'value="10.0"' in browser.contents
-#     True
-#     >>> 'value="5.0"' in browser.contents
-#     True
-#     >>> 'value="6.0"' in browser.contents
-#     True
-#     >>> 'value="15.0"' in browser.contents
-#     True
-#     >>> 'value="0.5"' in browser.contents
-#     True
-#     >>> 'value="10.5"' in browser.contents
-#     True
-#     >>> 'value="3"' in browser.contents
-#     True
-#     >>> 'value="14"' in browser.contents
-#     True
-#     >>> browser.getLink('View').click()
-
-#     >>> browser.open(doc01_url)
-
-#     >>> browser.getLink('Edit Product').click()
-#     >>> 'value="g" selected="selected"' in browser.contents
-#     True
-#     >>> 'value="kg" selected="selected"' in browser.contents
-#     False
-#     >>> 'value="0"' in browser.contents
-#     True
-#     >>> browser.getControl(name="weight_unit").value = ['kg']
-#     >>> browser.getControl(name="weight").value = '1.0'
-#     >>> browser.getControl(name="height").value = '2.0'
-#     >>> browser.getControl(name="width").value = '3.0'
-#     >>> browser.getControl(name="depth").value = '4.0'
-#     >>> browser.getControl(name="form.button.UpdateProductShipping").click()
-#     >>> 'value="g" selected="selected"' in browser.contents
-#     False
-#     >>> 'value="kg" selected="selected"' in browser.contents
-#     True
-#     >>> 'value="0"' in browser.contents
-#     False
-#     >>> 'value="1.0"' in browser.contents
-#     True
-#     >>> 'value="2.0"' in browser.contents
-#     True
-#     >>> 'value="3.0"' in browser.contents
-#     True
-#     >>> 'value="4.0"' in browser.contents
-#     True
-
-# Now log out, go to doc01 and add to cart::
-
-#     >>> browser.getLink('Log out').click()
-#     >>> browser.open(doc01_url)
-
-#     >>> browser.getControl(name="form.button.AddToCart").click()
-#     >>> browser.open(cart_url)
-
-#     >>> 'ShippingMethod01' in browser.contents
-#     True
-
-# Log in as the portal owner and add another shipping method::
-
-#     >>> from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
-#     >>> browser.login(TEST_USER_NAME, TEST_USER_PASSWORD)
-#     >>> browser.open(portal_url)
-#     >>> browser.getLink(id="shippingmethod").click()
-#     >>> browser.getControl(name='title').value = "ShippingMethod02"
-#     >>> browser.getControl(name='description').value = "Descripton of ShippingMethod02"
-#     >>> browser.getControl(name='from_country:list').getControl(value='FI').selected = True
-#     >>> browser.getControl(name='to_country:list').getControl(value='US').selected = True
-#     >>> browser.getControl(name='base_charge').value = "5"
-#     >>> browser.getControl(name='weight_charge').value = "10"
-#     >>> browser.getControl(name='fuel_rate').value = "1"
-#     >>> browser.getControl(name='insurance_base').value = "3"
-#     >>> browser.getControl(name='insurance_rate').value = "0.5"
-#     >>> browser.getControl(name='risk_rate').value = "10.5"
-#     >>> browser.getControl(name='min_delivery_days').value = '3'
-#     >>> browser.getControl(name='max_delivery_days').value = "14"
-#     >>> browser.getControl('Save').click()
-
-# Log out and check cart::
-
-#     >>> browser.getLink('Log out').click()
-#     >>> browser.open(doc01_url)
-
-#     >>> browser.getControl(name="form.button.AddToCart").click()
-#     >>> browser.open(cart_url)
-#     >>> shipping01_uid = portal.shippingmethod01.UID()
-#     >>> shipping02_uid = portal.shippingmethod02.UID()
-
-#     >>> value1 = 'value="{0}" selected="selected"'.format(shipping01_uid)
-#     >>> value2 = 'value="{0}" selected="selected"'.format(shipping02_uid)
-#     >>> value1 in browser.contents or value2 in browser.contents
-#     True
-
-#     >>> browser.getControl(name="shipping_method").value = [shipping01_uid]
-#     >>> browser.getControl(name="form.button.UpdateShippingMethod").click()
-
-#     >>> value1 in browser.contents
-#     True
-#     >>> browser.getControl(name="shipping_method").value = [shipping02_uid]
-
-#     >>> browser.getControl(name="form.button.UpdateShippingMethod").click()
-#     >>> value2 in browser.contents
-#     True
-
-#     >>> browser.getControl(name="shipping_method").value = [shipping01_uid]
-
-#     >>> browser.getControl(name="form.button.UpdateShippingMethod").click()
-#     >>> value1 in browser.contents
-#     True
-#     >>> open('/tmp/testbrowser.html', 'w').write(browser.contents)
-#     >>> browser.getControl(name="shipping_method").value = [shipping02_uid]
-
-#     >>> browser.getControl(name="form.button.UpdateShippingMethod").click()
-#     >>> value2 in browser.contents
-#     True
-
-    # >>> browser.openBrowser()

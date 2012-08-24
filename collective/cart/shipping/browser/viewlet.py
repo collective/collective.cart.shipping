@@ -1,20 +1,14 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from collective.cart.shipping.browser.form import ShippingMethodForm
 from collective.cart.shipping.browser.interfaces import ICollectiveCartShippingLayer
+from collective.cart.shipping.browser.wrapper import ShippingMethodFormWrapper
 from five import grok
 from plone.app.layout.globals.interfaces import IViewView
 from plone.app.layout.viewlets.interfaces import IAboveContent
-from plone.z3cform.layout import FormWrapper
+from zope.component import getUtility
 from zope.interface import Interface
+from zope.schema.interfaces import IVocabularyFactory
 
 
 grok.templatedir('viewlets')
-
-
-class ShippingMethodFormWrapper(FormWrapper):
-
-    form = ShippingMethodForm
-    index = ViewPageTemplateFile("viewlets/formwrapper.pt")
 
 
 class ShippingMethodViewlet(grok.Viewlet):
@@ -27,5 +21,12 @@ class ShippingMethodViewlet(grok.Viewlet):
     grok.view(IViewView)
     grok.viewletmanager(IAboveContent)
 
+    _form_wrapper = ShippingMethodFormWrapper
+
     def form(self):
-        return ShippingMethodFormWrapper(self.context, self.request)()
+        return self._form_wrapper(self.context, self.request)()
+
+    def available(self):
+        return len(getUtility(
+            IVocabularyFactory,
+            name="collective.cart.shipping.methods").__call__(self.context))

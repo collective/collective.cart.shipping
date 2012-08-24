@@ -26,20 +26,12 @@ default_script = """
 ##bind container=container
 ##bind context=context
 ##bind subpath=traverse_subpath
-##parameters=article, request
+##parameters=weight
 ##title=
 ##
 
 # Available parameters:
-#  request = The current HTTP request.
-#            Access fields by request.form["myfieldname"]
-#  article = collective.cart.core.Article object
-#
-# Return value is not processed -- unless you
-# return a dictionary with contents. That's regarded
-# as an error and will stop processing of actions
-# and return the user to the form. Error dictionaries
-# should be of the form {'field_id':'Error message'}
+#  weight = The calculated weight for the article.
 
 def shipping_fee(weight):
     return weight

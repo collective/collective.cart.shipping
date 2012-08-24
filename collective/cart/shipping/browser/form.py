@@ -1,9 +1,9 @@
+from collective.cart.shipping import _
 from collective.cart.shipping.schema import IShippingMethodSchema
 from five import grok
 from plone.directives import form
-from zope.interface import Interface
 from z3c.form import button
-from collective.cart.shipping import _
+from zope.interface import Interface
 
 
 class ShippingMethodForm(form.SchemaForm):

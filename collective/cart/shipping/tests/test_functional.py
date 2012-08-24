@@ -28,12 +28,11 @@ def setUp(self):
     layer = self.globs['layer']
     portal = layer['portal']
     browser = Browser(layer['app'])
-
     self.globs.update({
-        'portal': portal,
-        'browser': browser,
         'TEST_USER_NAME': TEST_USER_NAME,
         'TEST_USER_PASSWORD': TEST_USER_PASSWORD,
+        'browser': browser,
+        'portal': portal,
     })
     ztc.utils.setupCoreSessions(layer['app'])
     browser.setBaseUrl(portal.absolute_url())
