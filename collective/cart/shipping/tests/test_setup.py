@@ -37,6 +37,41 @@ class TestSetup(IntegrationTestCase):
         self.assertEqual(
             setup.getVersionForProfile('profile-collective.cart.shipping:default'), u'0')
 
+    def get_record(self, name):
+        """Get record by name.
+        :param name: Name of record.
+        :type name: basestring
+
+        :rtype: instance"""
+        from plone.registry.interfaces import IRegistry
+        from zope.component import getUtility
+        return getUtility(IRegistry).records.get(name)
+
+    def test_registry_record__collective_behavior_vat_VAT__field__instance(self):
+        from plone.registry.field import List
+        record = self.get_record('collective.behavior.vat.VAT')
+        self.assertIsInstance(record.field, List)
+
+    def test_registry_record__collective_behavior_vat_VAT__field__title(self):
+        from plone.registry.field import List
+        record = self.get_record('collective.behavior.vat.VAT')
+        self.assertEqual(record.field.title, u'VAT')
+
+    def test_registry_record__collective_behavior_vat_VAT__field__description(self):
+        from plone.registry.field import List
+        record = self.get_record('collective.behavior.vat.VAT')
+        self.assertEqual(record.field.description, u'A list of VAT in %.')
+
+    def test_registry_record__collective_behavior_vat_VAT__field__value_type(self):
+        from plone.registry.field import Float
+        record = self.get_record('collective.behavior.vat.VAT')
+        self.assertIsInstance(record.field.value_type, Float)
+
+    def test_registry_record__collective_behavior_vat_VAT__value(self):
+        from plone.registry.field import Float
+        record = self.get_record('collective.behavior.vat.VAT')
+        self.assertEqual(record.value, [23.0, 13.0, 9.0, 0.0])
+
     def test_rolemap__collective_cart_shipping_AddShippingMethod__rolesOfPermission(self):
         permission = "collective.cart.shipping: Add ShippingMethod"
         roles = [
@@ -252,3 +287,11 @@ class TestSetup(IntegrationTestCase):
         from collective.cart.shipping.browser.interfaces import ICollectiveCartShippingLayer
         from plone.browserlayer import utils
         self.assertNotIn(ICollectiveCartShippingLayer, utils.registered_layers())
+
+    def test_uninstall_registry(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        installer.uninstallProducts(['collective.cart.shipping'])
+        from plone.registry.interfaces import IRegistry
+        from zope.component import getUtility
+        with self.assertRaises(KeyError):
+            getUtility(IRegistry)['collective.behavior.vat.VAT']

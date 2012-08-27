@@ -4,8 +4,7 @@
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
   xmlns:grok="http://namespaces.zope.org/grok"
   xmlns:i18n="http://namespaces.zope.org/i18n"
-  xmlns="http://namespaces.zope.org/zope"
-  >
+  xmlns="http://namespaces.zope.org/zope">
 
   <includeDependencies package="." />
   <grok:grok package="." />
@@ -18,6 +17,14 @@
     name="default"
     provides="Products.GenericSetup.interfaces.EXTENSION"
     title="collective.cart.shipping"
+    />
+
+  <genericsetup:registerProfile
+    description="Uninstalls the collective.cart.shipping package"
+    directory="profiles/uninstall"
+    name="uninstall"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    title="Uninstall collective.cart.shipping"
     />
 
   <permission
