@@ -42,7 +42,8 @@ setup(
         'hexagonit.testing',
         'plone.app.dexterity',
         'plone.directives.form',
-        'setuptools'],
+        'setuptools',
+        'zope.i18nmessageid'],
     entry_points="""
     # -*- Entry points: -*-
 

@@ -107,7 +107,7 @@ ShippingMethodSchema = ATContentTypeSchema.copy() + Schema((
         widget=TextAreaWidget(
             label=_(u'Shipping Fee Script'),
             rows=10,
-            description=_(u'Script for calculationg shipping fee.')))))
+            description=_(u'Script for calculating shipping fee.')))))
 
 
 finalizeATCTSchema(ShippingMethodSchema, folderish=False, moveDiscussion=False)
