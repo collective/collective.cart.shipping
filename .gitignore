@@ -3,5 +3,6 @@
 *.html
 *.mo
 *.pyc
+build
 coverage
 dist
