@@ -1,5 +1,10 @@
-Changelog
----------
+Change log
+----------
+
+0.4.1 (2012-09-20)
+==================
+
+- Added ShippingMethod and collective.cart.shipping.CartShippingMethod to types_not_searched and metaTypesNotToList properties. [taito]
 
 0.4 (2012-09-19)
 ================
@@ -9,13 +14,16 @@ Changelog
 
 0.3 (2011-09-24)
 ================
+
 - End of support for Plone-3.x.
 - License updated from GPL to BSD.
 
 0.2.0 (2011-04-25)
 ==================
+
 - Refactored for plug-in.
 
 0.1.0 (2011-04-21)
 ==================
-- Initial release
+
+- Initial release.
