@@ -85,6 +85,34 @@ class TestSetup(IntegrationTestCase):
         self.assertEqual(
             self.portal.acquiredRolesAreUsedBy(permission), 'CHECKED')
 
+    def test_site_properties__types_not_searchable__ShippingMethod(self):
+        properties = getToolByName(self.portal, 'portal_properties')
+        site_properties = getattr(properties, 'site_properties')
+        self.assertIn(
+            'ShippingMethod',
+            site_properties.getProperty('types_not_searched'))
+
+    def test_site_properties__types_not_searchable__collective_cart_shipping_CartShippingMethod(self):
+        properties = getToolByName(self.portal, 'portal_properties')
+        site_properties = getattr(properties, 'site_properties')
+        self.assertIn(
+            'collective.cart.shipping.CartShippingMethod',
+            site_properties.getProperty('types_not_searched'))
+
+    def test_propertiestool__navtree_properties__metaTypesNotToList__ShippingMethod(self):
+        properties = getToolByName(self.portal, 'portal_properties')
+        navtree_properties = getattr(properties, 'navtree_properties')
+        self.assertIn(
+            'ShippingMethod',
+             navtree_properties.getProperty('metaTypesNotToList'))
+
+    def test_propertiestool__navtree_properties__metaTypesNotToList__collective_cart_shipping_CartShippingMethod(self):
+        properties = getToolByName(self.portal, 'portal_properties')
+        navtree_properties = getattr(properties, 'navtree_properties')
+        self.assertIn(
+            'collective.cart.shipping.CartShippingMethod',
+             navtree_properties.getProperty('metaTypesNotToList'))
+
     def get_type(self, name):
         types = getToolByName(self.portal, 'portal_types')
         return types.getTypeInfo(name)
