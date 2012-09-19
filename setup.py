@@ -5,16 +5,16 @@ import os
 
 
 long_description = (
-    open("README.txt").read() + "\n" +
-    open(os.path.join("docs", "INSTALL.txt")).read() + "\n" +
-    open(os.path.join("docs", "HISTORY.txt")).read() + "\n" +
-    open(os.path.join("docs", "CONTRIBUTORS.txt")).read() + "\n" +
-    open(os.path.join("docs", "CREDITS.txt")).read())
+    open("README.rst").read() + "\n" +
+    open(os.path.join("collective", "cart", "shipping", "docs", "INSTALL.rst")).read() + "\n" +
+    open(os.path.join("collective", "cart", "shipping", "docs", "HISTORY.rst")).read() + "\n" +
+    open(os.path.join("collective", "cart", "shipping", "docs", "CONTRIBUTORS.rst")).read() + "\n" +
+    open(os.path.join("collective", "cart", "shipping", "docs", "CREDITS.rst")).read())
 
 setup(
     name='collective.cart.shipping',
     version='0.4',
-    description="Shipping content type.",
+    description="Adds shipping methods to Plone.",
     long_description=long_description,
     # Get more strings from
     # http://pypi.python.org/pypi?%3Aaction=list_classifiers
