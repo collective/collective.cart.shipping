@@ -5,6 +5,7 @@ Changelog
 ================
 
 - Tested with Plone-4.2.1. [taito]
+- Added Finnish translations. [taito]
 
 0.3 (2011-09-24)
 ================
