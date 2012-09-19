@@ -53,12 +53,10 @@ class TestSetup(IntegrationTestCase):
         self.assertIsInstance(record.field, List)
 
     def test_registry_record__collective_behavior_vat_VAT__field__title(self):
-        from plone.registry.field import List
         record = self.get_record('collective.behavior.vat.VAT')
         self.assertEqual(record.field.title, u'VAT')
 
     def test_registry_record__collective_behavior_vat_VAT__field__description(self):
-        from plone.registry.field import List
         record = self.get_record('collective.behavior.vat.VAT')
         self.assertEqual(record.field.description, u'A list of VAT in %.')
 
@@ -68,7 +66,6 @@ class TestSetup(IntegrationTestCase):
         self.assertIsInstance(record.field.value_type, Float)
 
     def test_registry_record__collective_behavior_vat_VAT__value(self):
-        from plone.registry.field import Float
         record = self.get_record('collective.behavior.vat.VAT')
         self.assertEqual(record.value, [23.0, 13.0, 9.0, 0.0])
 
