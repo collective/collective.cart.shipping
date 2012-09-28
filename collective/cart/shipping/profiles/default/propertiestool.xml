@@ -5,6 +5,7 @@
     <property name="types_not_searched" type="lines" purge="False">
       <element value="ShippingMethod"/>
       <element value="collective.cart.shipping.CartShippingMethod"/>
+      <element value="collective.cart.shipping.ShippingMethodContainer"/>
     </property>
   </object>
 
@@ -12,6 +13,7 @@
     <property name="metaTypesNotToList" type="lines" purge="False">
       <element value="ShippingMethod"/>
       <element value="collective.cart.shipping.CartShippingMethod"/>
+      <element value="collective.cart.shipping.ShippingMethodContainer"/>
     </property>
   </object>
 

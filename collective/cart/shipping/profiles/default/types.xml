@@ -4,4 +4,5 @@
     name="ShippingMethod"
     />
   <object name="collective.cart.shipping.CartShippingMethod" meta_type="Dexterity FTI"/>
+  <object name="collective.cart.shipping.ShippingMethodContainer" meta_type="Dexterity FTI"/>
 </object>

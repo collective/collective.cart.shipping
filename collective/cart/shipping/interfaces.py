@@ -4,6 +4,10 @@ from zope.interface import Attribute
 from zope.interface import Interface
 
 
+class IShippingMethodContainer(Interface):
+    """Interface for ShippingMethodContainer"""
+
+
 class IShippingMethod(Interface):
 
     to_country = schema.Choice(

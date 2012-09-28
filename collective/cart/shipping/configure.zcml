@@ -37,4 +37,9 @@
     title="collective.cart.shipping: Add CartShippingMethod"
     />
 
+  <permission
+    id="collective.cart.shipping.AddShippingMethodContainer"
+    title="collective.cart.shipping: Add ShippingMethodContainer"
+    />
+
 </configure>

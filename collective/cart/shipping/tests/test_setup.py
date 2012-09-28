@@ -81,6 +81,22 @@ class TestSetup(IntegrationTestCase):
             'Site Administrator'])
 
     def test_rolemap__collective_cart_shipping_AddShippingMethod__acquiredRolesAreUsedBy(self):
+        permission = "collective.cart.shipping: Add ShippingMethodContainer"
+        self.assertEqual(
+            self.portal.acquiredRolesAreUsedBy(permission), 'CHECKED')
+
+    def test_rolemap__collective_cart_shipping_AddShippingMethodContainer__rolesOfPermission(self):
+        permission = "collective.cart.shipping: Add ShippingMethodContainer"
+        roles = [
+            item['name'] for item in self.portal.rolesOfPermission(
+                permission) if item['selected'] == 'SELECTED']
+        roles.sort()
+        self.assertEqual(roles, [
+            'Contributor',
+            'Manager',
+            'Site Administrator'])
+
+    def test_rolemap__collective_cart_shipping_AddShippingMethodContainer__acquiredRolesAreUsedBy(self):
         permission = "collective.cart.shipping: Add ShippingMethod"
         self.assertEqual(
             self.portal.acquiredRolesAreUsedBy(permission), 'CHECKED')
@@ -300,6 +316,144 @@ class TestSetup(IntegrationTestCase):
         ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
         self.assertEqual(
             ctype.add_permission, 'collective.cart.shipping.AddCartShippingMethod')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__i18n_domain(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.i18n_domain, 'collective.cart.shipping')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__meta_type(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.meta_type, 'Dexterity FTI')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__title(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.title, 'Shipping Method Container')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__description(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.description, '')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__content_icon(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.getIcon(), 'folder.png')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__allow_discussion(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertFalse(ctype.allow_discussion)
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__global_allow(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertFalse(ctype.global_allow)
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__filter_content_types(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertTrue(ctype.filter_content_types)
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__allowed_content_types(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.allowed_content_types, ('ShippingMethod',))
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__schema(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(
+            ctype.schema, 'collective.cart.shipping.interfaces.IShippingMethodContainer')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__klass(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.klass, 'plone.dexterity.content.Container')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__add_permission(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(
+            ctype.add_permission, 'collective.cart.shipping.AddShippingMethodContainer')
+
+    def test_types__collective_cart_shipping_ShippingMethodContainer__behaviors(self):
+        ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.behaviors, (
+            'plone.app.content.interfaces.INameFromTitle',
+            'plone.app.dexterity.behaviors.metadata.IBasic'))
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__default_view(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.default_view, 'view')
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__default_view_fallback(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        self.assertFalse(ctype.default_view_fallback)
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__view_methods(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(ctype.view_methods, ('view',))
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__default_aliases(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        self.assertEqual(
+            ctype.default_aliases,
+            {'edit': '@@edit', 'sharing': '@@sharing', '(Default)': '(dynamic view)', 'view': '(selected layout)'})
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__view__title(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/view')
+        self.assertEqual(action.title, 'View')
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__view__condition(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/view')
+        self.assertEqual(action.condition, '')
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__view__url_expr(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/view')
+        self.assertEqual(action.getActionExpression(), 'string:${folder_url}/')
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__view__visible(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/view')
+        self.assertTrue(action.visible)
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__view__permissions(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/view')
+        self.assertEqual(action.permissions, (u'View',))
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__edit__title(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.title, 'Edit')
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__edit__condition(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.condition, '')
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__edit__url_expr(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.getActionExpression(), 'string:${object_url}/edit')
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__edit__visible(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/edit')
+        self.assertTrue(action.visible)
+
+    def test_types__collective_cart_shopping_ShippingMethodContainer__action__edit__permissions(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.shipping.ShippingMethodContainer')
+        action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.permissions, (u'Modify portal content',))
 
     def test_uninstall_package(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
