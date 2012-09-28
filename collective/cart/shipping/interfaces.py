@@ -43,3 +43,4 @@ class ICartShippingMethod(Interface):
     gross = Attribute(u'Gross Fee')
     net = Attribute(u'Net Fee')
     vat = Attribute(u'VAT Fee')
+    vat_rate = Attribute(u'VAT Rate')

@@ -6,5 +6,8 @@
   <column value="max_delivery_days"/>
   <column value="weight_dimension_rate"/>
   <column value="vat"/>
+  <column value="vat_rate"/>
+  <column value="gross"/>
+  <column value="net"/>
 
 </object>
