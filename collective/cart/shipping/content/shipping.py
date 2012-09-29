@@ -22,23 +22,11 @@ from zope.interface import implements
 
 
 default_script = """
-## Python Script
-##bind container=container
-##bind context=context
-##bind subpath=traverse_subpath
-##parameters=weight
-##title=
-##
-
-# Available parameters:
-#  weight = The calculated weight for the article.
-
 def shipping_fee(weight):
     return weight
 
 
 return shipping_fee
-
 """
 
 

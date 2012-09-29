@@ -25,7 +25,7 @@ class VATsVocabulary(object):
                 vat_percent = '{} %'.format(str(vat))
                 terms.append(
                     SimpleVocabulary.createTerm(
-                        str(vat), str(vat), vat_percent))
+                        str(vat), vat, vat_percent))
 
         return SimpleVocabulary(terms)
 
