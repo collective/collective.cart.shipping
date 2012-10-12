@@ -277,7 +277,7 @@ class TestSetup(IntegrationTestCase):
 
     def test_types__collective_cart_shipping_CartShippingMethod__title(self):
         ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
-        self.assertEqual(ctype.title, 'CartShippingMethod')
+        self.assertEqual(ctype.title, 'Cart Shipping Method')
 
     def test_types__collective_cart_shipping_CartShippingMethod__description(self):
         ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
