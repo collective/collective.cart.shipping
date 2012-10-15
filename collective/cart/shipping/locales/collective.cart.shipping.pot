@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-09-19 16:27+0000\n"
+"POT-Creation-Date: 2012-10-15 03:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,51 +17,55 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.cart.shipping\n"
 
-#: ./content/shipping.py:88
-#: ./interfaces.py:25
+#: ./content/shipping.py:76
+#: ./interfaces.py:29
 msgid "1 m3 = ??? kg"
 msgstr ""
 
 #: ./profiles/default/types/collective.cart.shipping.CartShippingMethod.xml
-msgid "CartShippingMethod"
+msgid "Cart Shipping Method"
 msgstr ""
 
-#: ./interfaces.py:13
+#: ./interfaces.py:17
 msgid "Countries"
 msgstr ""
 
-#: ./interfaces.py:10
+#: ./interfaces.py:14
 msgid "Country To"
 msgstr ""
 
 #: ./browser/templates/shipping-method.pt:20
-#: ./content/shipping.py:76
-#: ./interfaces.py:20
+#: ./content/shipping.py:64
+#: ./interfaces.py:24
 msgid "Maximum Delivery Days"
 msgstr ""
 
 #: ./browser/templates/shipping-method.pt:18
-#: ./content/shipping.py:65
-#: ./interfaces.py:16
+#: ./content/shipping.py:53
+#: ./interfaces.py:20
 msgid "Minimum Delivery Days"
 msgstr ""
 
-#: ./content/shipping.py:110
+#: ./content/shipping.py:98
 msgid "Script for calculating shipping fee."
 msgstr ""
 
-#: ./content/shipping.py:55
-#: ./interfaces.py:12
+#: ./content/shipping.py:43
+#: ./interfaces.py:16
 msgid "Select countries to which this shipping method is applied."
 msgstr ""
 
-#: ./content/shipping.py:108
+#: ./content/shipping.py:96
 msgid "Shipping Fee Script"
 msgstr ""
 
 #: ./profiles/default/types/ShippingMethod.xml
 #: ./schema.py:9
 msgid "Shipping Method"
+msgstr ""
+
+#: ./profiles/default/types/collective.cart.shipping.ShippingMethodContainer.xml
+msgid "Shipping Method Container"
 msgstr ""
 
 #: ./browser/templates/shipping-method.pt:13
@@ -72,7 +76,7 @@ msgstr ""
 msgid "Shipping fee for one kg"
 msgstr ""
 
-#: ./content/shipping.py:54
+#: ./content/shipping.py:42
 msgid "To Country"
 msgstr ""
 
@@ -80,13 +84,13 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: ./content/shipping.py:100
-#: ./interfaces.py:29
+#: ./content/shipping.py:88
+#: ./interfaces.py:33
 msgid "VAT"
 msgstr ""
 
-#: ./content/shipping.py:87
-#: ./interfaces.py:24
+#: ./content/shipping.py:75
+#: ./interfaces.py:28
 msgid "Weight Dimension Rate"
 msgstr ""
 
