@@ -2,6 +2,8 @@ from collective.cart.shipping.browser.interfaces import ICollectiveCartShippingL
 from collective.cart.shipping.interfaces import IShippingMethod
 from five import grok
 
+import types
+
 
 grok.templatedir('templates')
 
@@ -15,4 +17,6 @@ class ShippingMethodView(grok.View):
 
     def shipping_fee_for_one_kg(self):
         shipping_fee = self.context.getField('shipping_fee').get(self.context)
-        return shipping_fee(1.0)
+        if isinstance(shipping_fee, types.FunctionType):
+            return shipping_fee(1.0)
+        return shipping_fee

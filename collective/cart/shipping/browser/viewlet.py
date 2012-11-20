@@ -15,7 +15,7 @@ class ShippingMethodViewlet(grok.Viewlet):
     """Viewlet to show updating shipping method form."""
     grok.context(Interface)
     grok.layer(ICollectiveCartShippingLayer)
-    grok.name('collective.cart.shipping.shipping-method')
+    grok.name('collective.cart.shipping.shipping.method')
     grok.require('zope2.View')
     grok.template('shipping-method')
     grok.view(IViewView)
