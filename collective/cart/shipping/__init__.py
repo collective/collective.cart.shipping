@@ -5,7 +5,7 @@ from zope.i18nmessageid import MessageFactory
 
 ADD_PERMISSIONS = {
     "ShippingMethod": "collective.cart.shipping: Add ShippingMethod",
-    }
+}
 PROJECTNAME = 'collective.cart.shipping'
 _ = MessageFactory(PROJECTNAME)
 

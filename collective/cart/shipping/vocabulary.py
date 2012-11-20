@@ -41,8 +41,7 @@ class ShippingMethodsVocabulary(object):
         brains = catalog({
             'object_provides': IShippingMethod.__identifier__,
         })
-        terms = [
-        SimpleVocabulary.createTerm(
+        terms = [SimpleVocabulary.createTerm(
             brain.UID, brain.UID, brain.Title) for brain in brains]
 
         return SimpleVocabulary(terms)

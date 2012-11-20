@@ -120,14 +120,14 @@ class TestSetup(IntegrationTestCase):
         navtree_properties = getattr(properties, 'navtree_properties')
         self.assertIn(
             'ShippingMethod',
-             navtree_properties.getProperty('metaTypesNotToList'))
+            navtree_properties.getProperty('metaTypesNotToList'))
 
     def test_propertiestool__navtree_properties__metaTypesNotToList__collective_cart_shipping_CartShippingMethod(self):
         properties = getToolByName(self.portal, 'portal_properties')
         navtree_properties = getattr(properties, 'navtree_properties')
         self.assertIn(
             'collective.cart.shipping.CartShippingMethod',
-             navtree_properties.getProperty('metaTypesNotToList'))
+            navtree_properties.getProperty('metaTypesNotToList'))
 
     def get_type(self, name):
         types = getToolByName(self.portal, 'portal_types')
