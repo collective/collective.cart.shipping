@@ -5,6 +5,7 @@ Change log
 ====================
 
 - Updated translations. [taito]
+- Added case when shipping_fee is not function. [taito]
 
 0.4.1 (2012-09-20)
 ==================

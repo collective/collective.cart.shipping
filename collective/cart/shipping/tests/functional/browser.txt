@@ -43,15 +43,13 @@ Add ShippingMethod::
 
     >>> print browser.bycss('#shipping-method-form')
     --- 1 ---
-    <section id="shipping-method-form"><form class="rowlike enableUnloadProtection   kssattr-formname-view" action="http://nohost/plone/shippingmethod1/view" method="post" id="form" enctype="multipart/form-data">
+    <section id="shipping-method-form"><form class="rowlike enableUnloadProtection   kssattr-formname-view" action="http://nohost/plone/shippingmethod1/view" method="post" enctype="multipart/form-data" id="form">
     <!-- Default fieldset -->
     <div class="field z3cformInlineValidation kssattr-fieldname-form.widgets.shipping_method" id="formfield-form-widgets-shipping_method">
     <label for="form-widgets-shipping_method" class="horizontal">
     Shipping Method
+    <span class="required horizontal" title="Required">&#160;</span>
     </label>
-    <span class="required horizontal" title="Required" style="color: red">
-    &#9632;
-    </span>
     <div class="fieldErrorBox"></div>
     <select id="form-widgets-shipping_method" name="form.widgets.shipping_method:list" class="select-widget required choice-field" size="1"><option id="form-widgets-shipping_method-0" value="...">ShippingMeth&#246;d1</option></select><input name="form.widgets.shipping_method-empty-marker" type="hidden" value="1"></div>
     <!-- Secondary fieldsets -->
