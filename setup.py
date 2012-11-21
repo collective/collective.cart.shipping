@@ -13,7 +13,7 @@ long_description = (
 
 setup(
     name='collective.cart.shipping',
-    version='0.4.1.1',
+    version='0.4.1.2',
     description="Adds shipping methods to Plone.",
     long_description=long_description,
     # Get more strings from
