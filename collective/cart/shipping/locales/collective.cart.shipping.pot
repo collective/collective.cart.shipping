@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-10-15 03:25+0000\n"
+"POT-Creation-Date: 2012-11-22 07:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,6 @@ msgid "Shipping Fee Script"
 msgstr ""
 
 #: ./profiles/default/types/ShippingMethod.xml
-#: ./schema.py:9
 msgid "Shipping Method"
 msgstr ""
 
@@ -78,10 +77,6 @@ msgstr ""
 
 #: ./content/shipping.py:42
 msgid "To Country"
-msgstr ""
-
-#: ./browser/form.py:17
-msgid "Update"
 msgstr ""
 
 #: ./content/shipping.py:88
