@@ -16,12 +16,9 @@ setup(
     version='0.4.1.2',
     description="Adds shipping methods to Plone.",
     long_description=long_description,
-    # Get more strings from
-    # http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Framework :: Plone",
         "Framework :: Plone :: 4.2",
-        "Framework :: Plone :: 4.3",
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7"],
@@ -42,8 +39,7 @@ setup(
         'hexagonit.testing',
         'plone.app.dexterity',
         'plone.directives.form',
-        'setuptools',
-        'zope.i18nmessageid'],
+        'setuptools'],
     entry_points="""
     # -*- Entry points: -*-
 
