@@ -6,10 +6,10 @@ import os
 
 long_description = (
     open("README.rst").read() + "\n" +
-    open(os.path.join("collective", "cart", "shipping", "docs", "INSTALL.rst")).read() + "\n" +
-    open(os.path.join("collective", "cart", "shipping", "docs", "HISTORY.rst")).read() + "\n" +
-    open(os.path.join("collective", "cart", "shipping", "docs", "CONTRIBUTORS.rst")).read() + "\n" +
-    open(os.path.join("collective", "cart", "shipping", "docs", "CREDITS.rst")).read())
+    open(os.path.join("src", "collective", "cart", "shipping", "docs", "INSTALL.rst")).read() + "\n" +
+    open(os.path.join("src", "collective", "cart", "shipping", "docs", "HISTORY.rst")).read() + "\n" +
+    open(os.path.join("src", "collective", "cart", "shipping", "docs", "CONTRIBUTORS.rst")).read() + "\n" +
+    open(os.path.join("src", "collective", "cart", "shipping", "docs", "CREDITS.rst")).read())
 
 setup(
     name='collective.cart.shipping',
@@ -27,7 +27,8 @@ setup(
     author_email='taito.horiuchi@gmail.com',
     url='https://github.com/collective/collective.cart.shipping',
     license='BSD',
-    packages=find_packages(exclude=['ez_setup']),
+    packages=find_packages('src', exclude=['ez_setup']),
+    package_dir={'': 'src'},
     namespace_packages=['collective', 'collective.cart'],
     include_package_data=True,
     zip_safe=False,

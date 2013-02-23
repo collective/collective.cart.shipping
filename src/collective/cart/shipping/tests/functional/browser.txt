@@ -68,3 +68,31 @@ Add one more ShoppingMethod::
     <dd>2.0</dd>
     </dl></div>
     </div>
+
+Add one another ShippingMethod which does not use function as shipping fee::
+
+    >>> browser.open('/createObject?type_name=ShippingMethod')
+    >>> browser.getControl(name='title').value = "ShippingMethöd3"
+    >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd3"
+    >>> browser.getControl(name='to_country').value = ['FI']
+    >>> browser.getControl(name='min_delivery_days').value = '5'
+    >>> browser.getControl(name='max_delivery_days').value = "10"
+    >>> browser.getControl(name="shipping_fee").value = 'return 10.0'
+    >>> browser.getControl(name="form.button.save").click()
+
+    >>> print browser.bycss('#content')
+    --- 1 ---
+    <div id="content">
+    <div>
+    <h1 class="documentFirstHeading">ShippingMeth&#246;d3</h1>
+    <p class="documentDescription">Descripton of ShippingMeth&#246;d3</p>
+    <dl><dt>Shipping To</dt>
+    <dd>FI</dd>
+    <dt>Minimum Delivery Days</dt>
+    <dd>5</dd>
+    <dt>Maximum Delivery Days</dt>
+    <dd>10</dd>
+    <dt>Shipping fee for one kg</dt>
+    <dd>10.0</dd>
+    </dl></div>
+    </div>

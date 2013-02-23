@@ -37,7 +37,6 @@ class IShippingMethod(Interface):
 class ICartShippingMethod(Interface):
 
     title = Attribute(u'Title')
-    # orig_uuid = Attribute(u'Original UUID')
     min_delivery_days = Attribute(u"Minimum Delivery Days")
     max_delivery_days = Attribute(u"Maximum Delivery Days")
     gross = Attribute(u'Gross Fee')
