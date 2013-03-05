@@ -1,8 +1,8 @@
 Change log
 ----------
 
-0.4.1.3 (2013-02-23)
-====================
+0.4.2 (2013-02-05)
+==================
 
 - Removed orig_uuid for session cart. [taito]
 - Added Travis CI integration. [taito]
