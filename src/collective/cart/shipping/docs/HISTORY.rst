@@ -1,15 +1,11 @@
 Change log
 ----------
 
-0.4.2 (2013-02-05)
-==================
+0.5 (2013-03-07)
+================
 
 - Removed orig_uuid for session cart. [taito]
 - Added Travis CI integration. [taito]
-
-0.4.1.2 (2012-11-21)
-====================
-
 - Updated translations. [taito]
 - Added case when shipping_fee is not function. [taito]
 
