@@ -10,6 +10,7 @@
   <grok:grok package="." />
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
+  <include file="upgrades.zcml"/>
 
   <genericsetup:registerProfile
     description="Installs the collective.cart.shipping package"

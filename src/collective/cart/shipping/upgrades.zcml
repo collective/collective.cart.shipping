@@ -1,0 +1,16 @@
+<configure
+  i18n_domain="collective.cart.shipping"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns="http://namespaces.zope.org/zope">
+
+  <genericsetup:upgradeStep
+    description=""
+    destination="1"
+    handler="collective.cart.shipping.upgrades.reimport_registry"
+    profile="collective.cart.shipping:default"
+    sortkey="1"
+    source="0"
+    title="Reimport registry"
+    />
+
+</configure>

@@ -35,7 +35,7 @@ class TestSetup(IntegrationTestCase):
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-collective.cart.shipping:default'), u'0')
+            setup.getVersionForProfile('profile-collective.cart.shipping:default'), u'1')
 
     def get_record(self, name):
         """Get record by name.
@@ -47,27 +47,27 @@ class TestSetup(IntegrationTestCase):
         from zope.component import getUtility
         return getUtility(IRegistry).records.get(name)
 
-    def test_registry_record__collective_behavior_vat_VAT__field__instance(self):
+    def test_registry_record__collective_behavior_vat_rates__field__instance(self):
         from plone.registry.field import List
-        record = self.get_record('collective.behavior.vat.VAT')
+        record = self.get_record('collective.behavior.vat.rates')
         self.assertIsInstance(record.field, List)
 
-    def test_registry_record__collective_behavior_vat_VAT__field__title(self):
-        record = self.get_record('collective.behavior.vat.VAT')
+    def test_registry_record__collective_behavior_vat_rates__field__title(self):
+        record = self.get_record('collective.behavior.vat.rates')
         self.assertEqual(record.field.title, u'VAT')
 
-    def test_registry_record__collective_behavior_vat_VAT__field__description(self):
-        record = self.get_record('collective.behavior.vat.VAT')
+    def test_registry_record__collective_behavior_vat_rates__field__description(self):
+        record = self.get_record('collective.behavior.vat.rates')
         self.assertEqual(record.field.description, u'A list of VAT in %.')
 
-    def test_registry_record__collective_behavior_vat_VAT__field__value_type(self):
+    def test_registry_record__collective_behavior_vat_rates__field__value_type(self):
         from plone.registry.field import Float
-        record = self.get_record('collective.behavior.vat.VAT')
+        record = self.get_record('collective.behavior.vat.rates')
         self.assertIsInstance(record.field.value_type, Float)
 
-    def test_registry_record__collective_behavior_vat_VAT__value(self):
-        record = self.get_record('collective.behavior.vat.VAT')
-        self.assertEqual(record.value, [23.0, 13.0, 9.0, 0.0])
+    def test_registry_record__collective_behavior_vat_rates__value(self):
+        record = self.get_record('collective.behavior.vat.rates')
+        self.assertEqual(record.value, [24.0, 14.0, 10.0, 0.0])
 
     def test_rolemap__collective_cart_shipping_AddShippingMethod__rolesOfPermission(self):
         permission = "collective.cart.shipping: Add ShippingMethod"
@@ -473,4 +473,4 @@ class TestSetup(IntegrationTestCase):
         from plone.registry.interfaces import IRegistry
         from zope.component import getUtility
         with self.assertRaises(KeyError):
-            getUtility(IRegistry)['collective.behavior.vat.VAT']
+            getUtility(IRegistry)['collective.behavior.vat.rates']

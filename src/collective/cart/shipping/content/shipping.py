@@ -11,7 +11,6 @@ from Products.Archetypes.public import IntegerWidget
 from Products.Archetypes.public import LinesField
 from Products.Archetypes.public import Schema
 from Products.Archetypes.public import SelectionWidget
-from Products.Archetypes.public import StringField
 from Products.Archetypes.public import TextAreaWidget
 from Products.Archetypes.public import registerType
 from Products.PythonField import PythonField
@@ -76,13 +75,13 @@ ShippingMethodSchema = ATContentTypeSchema.copy() + Schema((
             description=_(u'1 m3 = ??? kg')),
         default=250.0),
 
-    StringField(
+    FloatField(
         name="vat",
         required=True,
         searchable=False,
         languageIndependent=True,
         storage=AnnotationStorage(),
-        vocabulary_factory=u"collective.cart.shipping.vats",
+        vocabulary_factory=u"collective.cart.shipping.rates",
         enforceVocabulary=True,
         widget=SelectionWidget(
             label=_(u'VAT'))),

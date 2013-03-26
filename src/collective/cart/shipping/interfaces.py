@@ -31,7 +31,7 @@ class IShippingMethod(Interface):
 
     vat = schema.Choice(
         title=_(u'VAT'),
-        vocabulary=u'collective.behavior.vat.vats')
+        vocabulary=u'collective.behavior.vat.rates')
 
 
 class ICartShippingMethod(Interface):

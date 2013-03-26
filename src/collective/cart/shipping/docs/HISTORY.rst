@@ -1,6 +1,12 @@
 Change log
 ----------
 
+0.6 (2013-03-26)
+================
+
+- Refactored implementation of vocabulary: "collective.cart.shipping.rates". [taito]
+- Updated field: vat from string to float. [taito]
+
 0.5 (2013-03-07)
 ================
 

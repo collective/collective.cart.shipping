@@ -15,7 +15,7 @@ Add ShippingMethod::
     >>> browser.getLink(id="shippingmethod").click()
     >>> print browser.bycss('#vat')
     --- 1 ---
-    <select name="vat" id="vat"><option value="23.00">23.00 %</option><option value="13.00">13.00 %</option><option value="9.00">9.00 %</option><option value="0.00">0.00 %</option></select>
+    <select name="vat" id="vat"><option value="24.0">24%</option><option value="14.0">14%</option><option value="10.0">10%</option><option value="0.0">0%</option></select>
 
     >>> browser.getControl(name='title').value = "ShippingMethöd1"
     >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd1"

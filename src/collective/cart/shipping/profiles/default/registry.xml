@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <registry>
-  <record name="collective.behavior.vat.VAT">
+  <record name="collective.behavior.vat.VAT" delete="true" />
+  <record name="collective.behavior.vat.rates">
     <field type="plone.registry.field.List">
       <title>VAT</title>
       <description>A list of VAT in %.</description>
       <value_type type="plone.registry.field.Float" />
     </field>
     <value>
-      <element>23.0</element>
-      <element>13.0</element>
-      <element>9.0</element>
+      <element>24.0</element>
+      <element>14.0</element>
+      <element>10.0</element>
       <element>0.0</element>
     </value>
   </record>

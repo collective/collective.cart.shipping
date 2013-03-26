@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-11-22 07:44+0000\n"
+"POT-Creation-Date: 2013-03-26 11:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./content/shipping.py:76
+#: ./content/shipping.py:75
 #: ./interfaces.py:29
 msgid "1 m3 = ??? kg"
 msgstr "1 m3 = ??? kg"
@@ -32,27 +32,27 @@ msgid "Country To"
 msgstr "Maa(i)lle"
 
 #: ./browser/templates/shipping-method.pt:20
-#: ./content/shipping.py:64
+#: ./content/shipping.py:63
 #: ./interfaces.py:24
 msgid "Maximum Delivery Days"
 msgstr "Ennimmäistoimituspäivä"
 
 #: ./browser/templates/shipping-method.pt:18
-#: ./content/shipping.py:53
+#: ./content/shipping.py:52
 #: ./interfaces.py:20
 msgid "Minimum Delivery Days"
 msgstr "Vähimmäistoimituspäivä"
 
-#: ./content/shipping.py:98
+#: ./content/shipping.py:97
 msgid "Script for calculating shipping fee."
 msgstr "Toimituslaskentaa varten käytettävä skripti."
 
-#: ./content/shipping.py:43
+#: ./content/shipping.py:42
 #: ./interfaces.py:16
 msgid "Select countries to which this shipping method is applied."
 msgstr "Valitse maita, johon tämä toimitustapaa käytetään."
 
-#: ./content/shipping.py:96
+#: ./content/shipping.py:95
 msgid "Shipping Fee Script"
 msgstr "Toimitusmksulaskentaskripti"
 
@@ -72,16 +72,16 @@ msgstr "Toimitetaan"
 msgid "Shipping fee for one kg"
 msgstr "Toimitusmaksu yhdelle kilolle"
 
-#: ./content/shipping.py:42
+#: ./content/shipping.py:41
 msgid "To Country"
 msgstr "Maa(i)lle"
 
-#: ./content/shipping.py:88
+#: ./content/shipping.py:87
 #: ./interfaces.py:33
 msgid "VAT"
 msgstr "ALV"
 
-#: ./content/shipping.py:75
+#: ./content/shipping.py:74
 #: ./interfaces.py:28
 msgid "Weight Dimension Rate"
 msgstr "Paino-tilavuus-suhde"
