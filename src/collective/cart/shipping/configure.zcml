@@ -2,14 +2,14 @@
   i18n_domain="collective.cart.shipping"
   xmlns:five="http://namespaces.zope.org/five"
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-  xmlns:grok="http://namespaces.zope.org/grok"
   xmlns:i18n="http://namespaces.zope.org/i18n"
   xmlns="http://namespaces.zope.org/zope">
 
-  <includeDependencies package="." />
-  <grok:grok package="." />
+  <include package="collective.behavior.vat"/>
+  <include package="plone.app.dexterity"/>
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
+  <include package=".browser" />
   <include file="upgrades.zcml"/>
 
   <genericsetup:registerProfile
@@ -41,6 +41,11 @@
   <permission
     id="collective.cart.shipping.AddShippingMethodContainer"
     title="collective.cart.shipping: Add ShippingMethodContainer"
+    />
+
+  <utility
+    component=".vocabulary.VATRatesVocabularyFactory"
+    name="collective.cart.shipping.rates"
     />
 
 </configure>

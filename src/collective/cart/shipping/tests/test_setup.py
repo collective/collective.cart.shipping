@@ -101,33 +101,25 @@ class TestSetup(IntegrationTestCase):
         self.assertEqual(
             self.portal.acquiredRolesAreUsedBy(permission), 'CHECKED')
 
-    def test_site_properties__types_not_searchable__ShippingMethod(self):
+    def test_propertiestool__site_properties__types_not_searchable(self):
         properties = getToolByName(self.portal, 'portal_properties')
         site_properties = getattr(properties, 'site_properties')
-        self.assertIn(
+        ctypes = [
             'ShippingMethod',
-            site_properties.getProperty('types_not_searched'))
+            'collective.cart.shipping.OrderShippingMethod',
+            'collective.cart.shipping.ShippingMethodContainer']
+        for ctype in ctypes:
+            self.assertIn(ctype, site_properties.getProperty('types_not_searched'))
 
-    def test_site_properties__types_not_searchable__collective_cart_shipping_CartShippingMethod(self):
-        properties = getToolByName(self.portal, 'portal_properties')
-        site_properties = getattr(properties, 'site_properties')
-        self.assertIn(
-            'collective.cart.shipping.CartShippingMethod',
-            site_properties.getProperty('types_not_searched'))
-
-    def test_propertiestool__navtree_properties__metaTypesNotToList__ShippingMethod(self):
+    def test_propertiestool__navtree_properties__metaTypesNotToList(self):
         properties = getToolByName(self.portal, 'portal_properties')
         navtree_properties = getattr(properties, 'navtree_properties')
-        self.assertIn(
+        ctypes = [
             'ShippingMethod',
-            navtree_properties.getProperty('metaTypesNotToList'))
-
-    def test_propertiestool__navtree_properties__metaTypesNotToList__collective_cart_shipping_CartShippingMethod(self):
-        properties = getToolByName(self.portal, 'portal_properties')
-        navtree_properties = getattr(properties, 'navtree_properties')
-        self.assertIn(
-            'collective.cart.shipping.CartShippingMethod',
-            navtree_properties.getProperty('metaTypesNotToList'))
+            'collective.cart.shipping.OrderShippingMethod',
+            'collective.cart.shipping.ShippingMethodContainer']
+        for ctype in ctypes:
+            self.assertIn(ctype, navtree_properties.getProperty('metaTypesNotToList'))
 
     def get_type(self, name):
         types = getToolByName(self.portal, 'portal_types')
@@ -267,55 +259,55 @@ class TestSetup(IntegrationTestCase):
         action = ctype.getActionObject('object/edit')
         self.assertEqual(action.permissions, (u'Modify portal content',))
 
-    def test_types__collective_cart_shipping_CartShippingMethod__i18n_domain(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__i18n_domain(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertEqual(ctype.i18n_domain, 'collective.cart.shipping')
 
-    def test_types__collective_cart_shipping_CartShippingMethod__meta_type(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__meta_type(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertEqual(ctype.meta_type, 'Dexterity FTI')
 
-    def test_types__collective_cart_shipping_CartShippingMethod__title(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
-        self.assertEqual(ctype.title, 'Cart Shipping Method')
+    def test_types__collective_cart_shipping_OrderShippingMethod__title(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
+        self.assertEqual(ctype.title, 'Order Shipping Method')
 
-    def test_types__collective_cart_shipping_CartShippingMethod__description(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__description(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertEqual(ctype.description, '')
 
-    def test_types__collective_cart_shipping_CartShippingMethod__content_icon(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__content_icon(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertEqual(ctype.getIcon(), '')
 
-    def test_types__collective_cart_shipping_CartShippingMethod__allow_discussion(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__allow_discussion(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertFalse(ctype.allow_discussion)
 
-    def test_types__collective_cart_shipping_CartShippingMethod__global_allow(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__global_allow(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertFalse(ctype.global_allow)
 
-    def test_types__collective_cart_shipping_CartShippingMethod__filter_content_types(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__filter_content_types(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertTrue(ctype.filter_content_types)
 
-    def test_types__collective_cart_shipping_CartShippingMethod__allowed_content_types(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__allowed_content_types(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertEqual(ctype.allowed_content_types, ())
 
-    def test_types__collective_cart_shipping_CartShippingMethod__schema(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__schema(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertEqual(
-            ctype.schema, 'collective.cart.shipping.interfaces.ICartShippingMethod')
+            ctype.schema, 'collective.cart.shipping.schema.OrderShippingMethodSchema')
 
-    def test_types__collective_cart_shipping_CartShippingMethod__klass(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
-        self.assertEqual(ctype.klass, 'plone.dexterity.content.Container')
+    def test_types__collective_cart_shipping_OrderShippingMethod__klass(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
+        self.assertEqual(ctype.klass, 'collective.cart.shipping.content.OrderShippingMethod')
 
-    def test_types__collective_cart_shipping_CartShippingMethod__add_permission(self):
-        ctype = self.get_type('collective.cart.shipping.CartShippingMethod')
+    def test_types__collective_cart_shipping_OrderShippingMethod__add_permission(self):
+        ctype = self.get_type('collective.cart.shipping.OrderShippingMethod')
         self.assertEqual(
-            ctype.add_permission, 'collective.cart.shipping.AddCartShippingMethod')
+            ctype.add_permission, 'collective.cart.shipping.AddOrderShippingMethod')
 
     def test_types__collective_cart_shipping_ShippingMethodContainer__i18n_domain(self):
         ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
@@ -356,11 +348,11 @@ class TestSetup(IntegrationTestCase):
     def test_types__collective_cart_shipping_ShippingMethodContainer__schema(self):
         ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
         self.assertEqual(
-            ctype.schema, 'collective.cart.shipping.interfaces.IShippingMethodContainer')
+            ctype.schema, 'collective.cart.shipping.schema.ShippingMethodContainerSchema')
 
     def test_types__collective_cart_shipping_ShippingMethodContainer__klass(self):
         ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')
-        self.assertEqual(ctype.klass, 'plone.dexterity.content.Container')
+        self.assertEqual(ctype.klass, 'collective.cart.shipping.content.ShippingMethodContainer')
 
     def test_types__collective_cart_shipping_ShippingMethodContainer__add_permission(self):
         ctype = self.get_type('collective.cart.shipping.ShippingMethodContainer')

@@ -2,97 +2,97 @@ Log in as Manager::
 
     >>> browser.login(TEST_USER_NAME, TEST_USER_PASSWORD)
 
-Verify that we can create ShippingMethod under portal::
+# Verify that we can create ShippingMethod under portal::
 
-    >>> browser.open('/')
-    >>> print browser.bycss('#shipping-method-form')
+#     >>> browser.open('/')
+#     >>> print browser.bycss('#shipping-method-form')
 
-    >>> browser.getLink(id='shippingmethod').url.endswith("createObject?type_name=ShippingMethod")
-    True
+#     >>> browser.getLink(id='shippingmethod').url.endswith("createObject?type_name=ShippingMethod")
+#     True
 
-Add ShippingMethod::
+# Add ShippingMethod::
 
-    >>> browser.getLink(id="shippingmethod").click()
-    >>> print browser.bycss('#vat')
-    --- 1 ---
-    <select name="vat" id="vat"><option value="24.0">24%</option><option value="14.0">14%</option><option value="10.0">10%</option><option value="0.0">0%</option></select>
+#     >>> browser.getLink(id="shippingmethod").click()
+#     >>> print browser.bycss('#vat')
+#     --- 1 ---
+#     <select name="vat" id="vat"><option value="24.0">24%</option><option value="14.0">14%</option><option value="10.0">10%</option><option value="0.0">0%</option></select>
 
-    >>> browser.getControl(name='title').value = "ShippingMethöd1"
-    >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd1"
-    >>> browser.getControl(name='to_country').value = ['FI']
-    >>> browser.getControl(name='min_delivery_days').value = '3'
-    >>> browser.getControl(name='max_delivery_days').value = "14"
-    >>> browser.getControl(name="form.button.save").click()
+#     >>> browser.getControl(name='title').value = "ShippingMethöd1"
+#     >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd1"
+#     >>> browser.getControl(name='to_country').value = ['FI']
+#     >>> browser.getControl(name='min_delivery_days').value = '3'
+#     >>> browser.getControl(name='max_delivery_days').value = "14"
+#     >>> browser.getControl(name="form.button.save").click()
 
-    >>> print browser.bycss('#content')
-    --- 1 ---
-    <div id="content">
-    <div>
-    <h1 class="documentFirstHeading">ShippingMeth&#246;d1</h1>
-    <p class="documentDescription">Descripton of ShippingMeth&#246;d1</p>
-    <dl><dt>Shipping To</dt>
-    <dd>FI</dd>
-    <dt>Minimum Delivery Days</dt>
-    <dd>3</dd>
-    <dt>Maximum Delivery Days</dt>
-    <dd>14</dd>
-    <dt>Shipping fee for one kg</dt>
-    <dd>1.0</dd>
-    </dl></div>
-    </div>
+#     >>> print browser.bycss('#content')
+#     --- 1 ---
+#     <div id="content">
+#     <div>
+#     <h1 class="documentFirstHeading">ShippingMeth&#246;d1</h1>
+#     <p class="documentDescription">Descripton of ShippingMeth&#246;d1</p>
+#     <dl><dt>Shipping To</dt>
+#     <dd>FI</dd>
+#     <dt>Minimum Delivery Days</dt>
+#     <dd>3</dd>
+#     <dt>Maximum Delivery Days</dt>
+#     <dd>14</dd>
+#     <dt>Shipping fee for one kg</dt>
+#     <dd>1.0</dd>
+#     </dl></div>
+#     </div>
 
-Add one more ShoppingMethod::
+# Add one more ShoppingMethod::
 
-    >>> browser.open('/createObject?type_name=ShippingMethod')
-    >>> browser.getControl(name='title').value = "ShippingMethöd2"
-    >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd2"
-    >>> browser.getControl(name='to_country').value = ['FI']
-    >>> browser.getControl(name='min_delivery_days').value = '5'
-    >>> browser.getControl(name='max_delivery_days').value = "10"
-    >>> browser.getControl(name="shipping_fee").value = 'def shipping_fee(weight):\n    return weight * 2\nreturn shipping_fee'
-    >>> browser.getControl(name="form.button.save").click()
+#     >>> browser.open('/createObject?type_name=ShippingMethod')
+#     >>> browser.getControl(name='title').value = "ShippingMethöd2"
+#     >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd2"
+#     >>> browser.getControl(name='to_country').value = ['FI']
+#     >>> browser.getControl(name='min_delivery_days').value = '5'
+#     >>> browser.getControl(name='max_delivery_days').value = "10"
+#     >>> browser.getControl(name="shipping_fee").value = 'def shipping_fee(weight):\n    return weight * 2\nreturn shipping_fee'
+#     >>> browser.getControl(name="form.button.save").click()
 
-    >>> print browser.bycss('#content')
-    --- 1 ---
-    <div id="content">
-    <div>
-    <h1 class="documentFirstHeading">ShippingMeth&#246;d2</h1>
-    <p class="documentDescription">Descripton of ShippingMeth&#246;d2</p>
-    <dl><dt>Shipping To</dt>
-    <dd>FI</dd>
-    <dt>Minimum Delivery Days</dt>
-    <dd>5</dd>
-    <dt>Maximum Delivery Days</dt>
-    <dd>10</dd>
-    <dt>Shipping fee for one kg</dt>
-    <dd>2.0</dd>
-    </dl></div>
-    </div>
+#     >>> print browser.bycss('#content')
+#     --- 1 ---
+#     <div id="content">
+#     <div>
+#     <h1 class="documentFirstHeading">ShippingMeth&#246;d2</h1>
+#     <p class="documentDescription">Descripton of ShippingMeth&#246;d2</p>
+#     <dl><dt>Shipping To</dt>
+#     <dd>FI</dd>
+#     <dt>Minimum Delivery Days</dt>
+#     <dd>5</dd>
+#     <dt>Maximum Delivery Days</dt>
+#     <dd>10</dd>
+#     <dt>Shipping fee for one kg</dt>
+#     <dd>2.0</dd>
+#     </dl></div>
+#     </div>
 
-Add one another ShippingMethod which does not use function as shipping fee::
+# Add one another ShippingMethod which does not use function as shipping fee::
 
-    >>> browser.open('/createObject?type_name=ShippingMethod')
-    >>> browser.getControl(name='title').value = "ShippingMethöd3"
-    >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd3"
-    >>> browser.getControl(name='to_country').value = ['FI']
-    >>> browser.getControl(name='min_delivery_days').value = '5'
-    >>> browser.getControl(name='max_delivery_days').value = "10"
-    >>> browser.getControl(name="shipping_fee").value = 'return 10.0'
-    >>> browser.getControl(name="form.button.save").click()
+#     >>> browser.open('/createObject?type_name=ShippingMethod')
+#     >>> browser.getControl(name='title').value = "ShippingMethöd3"
+#     >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd3"
+#     >>> browser.getControl(name='to_country').value = ['FI']
+#     >>> browser.getControl(name='min_delivery_days').value = '5'
+#     >>> browser.getControl(name='max_delivery_days').value = "10"
+#     >>> browser.getControl(name="shipping_fee").value = 'return 10.0'
+#     >>> browser.getControl(name="form.button.save").click()
 
-    >>> print browser.bycss('#content')
-    --- 1 ---
-    <div id="content">
-    <div>
-    <h1 class="documentFirstHeading">ShippingMeth&#246;d3</h1>
-    <p class="documentDescription">Descripton of ShippingMeth&#246;d3</p>
-    <dl><dt>Shipping To</dt>
-    <dd>FI</dd>
-    <dt>Minimum Delivery Days</dt>
-    <dd>5</dd>
-    <dt>Maximum Delivery Days</dt>
-    <dd>10</dd>
-    <dt>Shipping fee for one kg</dt>
-    <dd>10.0</dd>
-    </dl></div>
-    </div>
+#     >>> print browser.bycss('#content')
+#     --- 1 ---
+#     <div id="content">
+#     <div>
+#     <h1 class="documentFirstHeading">ShippingMeth&#246;d3</h1>
+#     <p class="documentDescription">Descripton of ShippingMeth&#246;d3</p>
+#     <dl><dt>Shipping To</dt>
+#     <dd>FI</dd>
+#     <dt>Minimum Delivery Days</dt>
+#     <dd>5</dd>
+#     <dt>Maximum Delivery Days</dt>
+#     <dd>10</dd>
+#     <dt>Shipping fee for one kg</dt>
+#     <dd>10.0</dd>
+#     </dl></div>
+#     </div>

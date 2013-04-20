@@ -1,19 +1,13 @@
-from collective.cart.shipping.browser.interfaces import ICollectiveCartShippingLayer
-from collective.cart.shipping.interfaces import IShippingMethod
-from five import grok
+from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 import types
 
 
-grok.templatedir('templates')
+class ShippingMethodView(BrowserView):
+    """View for content type: ShippingMethod"""
 
-
-class ShippingMethodView(grok.View):
-    grok.context(IShippingMethod)
-    grok.layer(ICollectiveCartShippingLayer)
-    grok.name('view')
-    grok.require('zope2.View')
-    grok.template('shipping-method')
+    __call__ = ViewPageTemplateFile('templates/shipping-method.pt')
 
     def shipping_fee_for_one_kg(self):
         shipping_fee = self.context.getField('shipping_fee').get(self.context)

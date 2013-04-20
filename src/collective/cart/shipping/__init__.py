@@ -4,7 +4,7 @@ from zope.i18nmessageid import MessageFactory
 
 
 ADD_PERMISSIONS = {
-    "ShippingMethod": "collective.cart.shipping: Add ShippingMethod",
+    "collective.cart.shipping: Add ShippingMethod",
 }
 PROJECTNAME = 'collective.cart.shipping'
 _ = MessageFactory(PROJECTNAME)
@@ -20,7 +20,7 @@ def initialize(context):
 
     for atype, constructor in zip(content_types, constructors):
         utils.ContentInit(
-            "{0}: {1}".format(PROJECTNAME, atype.portal_type),
+            "{}: {}".format(PROJECTNAME, atype.portal_type),
             content_types=(atype,),
             permission=ADD_PERMISSIONS[atype.portal_type],
             extra_constructors=(constructor,),

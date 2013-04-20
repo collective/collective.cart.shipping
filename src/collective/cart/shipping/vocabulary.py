@@ -1,11 +1,11 @@
-from five import grok
 from zope.component import getUtility
+from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
 
 
 class VATRatesVocabulary(object):
-    grok.implements(IVocabularyFactory)
+    implements(IVocabularyFactory)
 
     def __call__(self, context):
         terms = []
@@ -16,4 +16,4 @@ class VATRatesVocabulary(object):
         return SimpleVocabulary(terms)
 
 
-grok.global_utility(VATRatesVocabulary, name=u"collective.cart.shipping.rates")
+VATRatesVocabularyFactory = VATRatesVocabulary()

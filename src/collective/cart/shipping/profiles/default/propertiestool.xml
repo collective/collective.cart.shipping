@@ -4,7 +4,7 @@
   <object name="site_properties" meta_type="Plone Property Sheet">
     <property name="types_not_searched" type="lines" purge="False">
       <element value="ShippingMethod"/>
-      <element value="collective.cart.shipping.CartShippingMethod"/>
+      <element value="collective.cart.shipping.OrderShippingMethod"/>
       <element value="collective.cart.shipping.ShippingMethodContainer"/>
     </property>
   </object>
@@ -12,7 +12,7 @@
   <object name="navtree_properties" meta_type="Plone Property Sheet">
     <property name="metaTypesNotToList" type="lines" purge="False">
       <element value="ShippingMethod"/>
-      <element value="collective.cart.shipping.CartShippingMethod"/>
+      <element value="collective.cart.shipping.OrderShippingMethod"/>
       <element value="collective.cart.shipping.ShippingMethodContainer"/>
     </property>
   </object>

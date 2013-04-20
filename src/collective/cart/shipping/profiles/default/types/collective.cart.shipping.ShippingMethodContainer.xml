@@ -19,8 +19,8 @@
   </property>
 
   <!-- Schema, class and security -->
-  <property name="schema">collective.cart.shipping.interfaces.IShippingMethodContainer</property>
-  <property name="klass">plone.dexterity.content.Container</property>
+  <property name="schema">collective.cart.shipping.schema.ShippingMethodContainerSchema</property>
+  <property name="klass">collective.cart.shipping.content.ShippingMethodContainer</property>
   <property name="add_permission">collective.cart.shipping.AddShippingMethodContainer</property>
 
   <!-- enabled behaviors -->

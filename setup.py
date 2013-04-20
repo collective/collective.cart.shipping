@@ -6,9 +6,7 @@ import os
 
 long_description = (
     open("README.rst").read() + "\n" +
-    open(os.path.join("src", "collective", "cart", "shipping", "docs", "INSTALL.rst")).read() + "\n" +
     open(os.path.join("src", "collective", "cart", "shipping", "docs", "HISTORY.rst")).read() + "\n" +
-    open(os.path.join("src", "collective", "cart", "shipping", "docs", "CONTRIBUTORS.rst")).read() + "\n" +
     open(os.path.join("src", "collective", "cart", "shipping", "docs", "CREDITS.rst")).read())
 
 setup(
@@ -18,7 +16,7 @@ setup(
     long_description=long_description,
     classifiers=[
         "Framework :: Plone",
-        "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 4.3",
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7"],
@@ -36,11 +34,9 @@ setup(
         'Products.ATCountryWidget',
         'Products.PythonField',
         'collective.behavior.vat',
-        'five.grok',
-        'hexagonit.testing',
         'plone.app.dexterity',
-        'plone.directives.form',
         'setuptools'],
+    extras_require={'test': ['hexagonit.testing']},
     entry_points="""
     # -*- Entry points: -*-
 

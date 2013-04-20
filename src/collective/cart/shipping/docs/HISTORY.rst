@@ -1,6 +1,15 @@
 Change log
 ----------
 
+0.6.0.1 (2013-04-20)
+====================
+
+- Moved test packages to extras_require. [taito]
+- Removed dependency from five.grok. [taito]
+- Moved cart related content types to order related ones. [taito]
+- Prepared to update AT content type to Dexterity one. [taito]
+- Tested with Plone-4.3. [taito]
+
 0.6 (2013-03-26)
 ================
 
