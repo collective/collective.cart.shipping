@@ -1,0 +1,14 @@
+<configure
+  i18n_domain="abita.basetheme"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns="http://namespaces.zope.org/zope">
+
+  <browser:page
+    class=".template.ShippingMethodView"
+    for="collective.cart.shipping.interfaces.IShippingMethod"
+    layer=".interfaces.ICollectiveCartShippingLayer"
+    name="view"
+    permission="zope2.View"
+    />
+
+</configure>
