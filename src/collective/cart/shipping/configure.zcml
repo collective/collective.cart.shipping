@@ -10,6 +10,7 @@
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
   <include package=".browser" />
+  <include package=".content" />
   <include file="upgrades.zcml"/>
 
   <genericsetup:registerProfile
@@ -34,8 +35,8 @@
     />
 
   <permission
-    id="collective.cart.shipping.AddCartShippingMethod"
-    title="collective.cart.shipping: Add CartShippingMethod"
+    id="collective.cart.shipping.AddOrderShippingMethod"
+    title="collective.cart.shipping: Add OrderShippingMethod"
     />
 
   <permission

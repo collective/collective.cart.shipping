@@ -1,6 +1,12 @@
 Change log
 ----------
 
+0.6.0.2 (2013-04-22)
+====================
+
+- Fixed imports. [taito]
+- Fixed not addable content type: ShippingMethod. [taito]
+
 0.6.0.1 (2013-04-20)
 ====================
 

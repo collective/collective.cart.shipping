@@ -1,4 +1,4 @@
-from collective.cart.core import _
+from collective.cart.shipping import _
 from plone.supermodel.model import Schema
 from zope import schema
 

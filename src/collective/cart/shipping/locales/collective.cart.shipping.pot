@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-26 11:05+0000\n"
+"POT-Creation-Date: 2013-04-22 06:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Domain: collective.cart.shipping\n"
 
 #: ./content/shipping.py:75
-#: ./interfaces.py:29
+#: ./schema.py:29
 msgid "1 m3 = ??? kg"
 msgstr ""
 
-#: ./profiles/default/types/collective.cart.shipping.CartShippingMethod.xml
-msgid "Cart Shipping Method"
-msgstr ""
-
-#: ./interfaces.py:17
+#: ./schema.py:17
 msgid "Countries"
 msgstr ""
 
-#: ./interfaces.py:14
+#: ./schema.py:14
 msgid "Country To"
 msgstr ""
 
 #: ./browser/templates/shipping-method.pt:20
 #: ./content/shipping.py:63
-#: ./interfaces.py:24
+#: ./schema.py:24
 msgid "Maximum Delivery Days"
 msgstr ""
 
 #: ./browser/templates/shipping-method.pt:18
 #: ./content/shipping.py:52
-#: ./interfaces.py:20
+#: ./schema.py:20
 msgid "Minimum Delivery Days"
+msgstr ""
+
+#: ./profiles/default/types/collective.cart.shipping.OrderShippingMethod.xml
+msgid "Order Shipping Method"
 msgstr ""
 
 #: ./content/shipping.py:97
@@ -51,7 +51,7 @@ msgid "Script for calculating shipping fee."
 msgstr ""
 
 #: ./content/shipping.py:42
-#: ./interfaces.py:16
+#: ./schema.py:16
 msgid "Select countries to which this shipping method is applied."
 msgstr ""
 
@@ -80,12 +80,12 @@ msgid "To Country"
 msgstr ""
 
 #: ./content/shipping.py:87
-#: ./interfaces.py:33
+#: ./schema.py:33
 msgid "VAT"
 msgstr ""
 
 #: ./content/shipping.py:74
-#: ./interfaces.py:28
+#: ./schema.py:28
 msgid "Weight Dimension Rate"
 msgstr ""
 

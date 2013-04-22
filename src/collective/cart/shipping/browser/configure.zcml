@@ -3,6 +3,12 @@
   xmlns:browser="http://namespaces.zope.org/browser"
   xmlns="http://namespaces.zope.org/zope">
 
+  <browser:resourceDirectory
+    name="collective.cart.shipping"
+    directory="static"
+    layer=".interfaces.ICollectiveCartShippingLayer"
+    />
+
   <browser:page
     class=".template.ShippingMethodView"
     for="collective.cart.shipping.interfaces.IShippingMethod"
