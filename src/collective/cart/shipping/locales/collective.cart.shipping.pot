@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-22 06:34+0000\n"
+"POT-Creation-Date: 2013-05-03 16:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,13 +30,13 @@ msgstr ""
 msgid "Country To"
 msgstr ""
 
-#: ./browser/templates/shipping-method.pt:20
+#: ./browser/templates/shipping-method.pt:18
 #: ./content/shipping.py:63
 #: ./schema.py:24
 msgid "Maximum Delivery Days"
 msgstr ""
 
-#: ./browser/templates/shipping-method.pt:18
+#: ./browser/templates/shipping-method.pt:16
 #: ./content/shipping.py:52
 #: ./schema.py:20
 msgid "Minimum Delivery Days"
@@ -67,11 +67,11 @@ msgstr ""
 msgid "Shipping Method Container"
 msgstr ""
 
-#: ./browser/templates/shipping-method.pt:13
+#: ./browser/templates/shipping-method.pt:11
 msgid "Shipping To"
 msgstr ""
 
-#: ./browser/templates/shipping-method.pt:22
+#: ./browser/templates/shipping-method.pt:20
 msgid "Shipping fee for one kg"
 msgstr ""
 

@@ -27,9 +27,15 @@ Add ShippingMethod::
     >>> print browser.bycss('#content')
     --- 1 ---
     <div id="content">
-    <div>
-    <h1 class="documentFirstHeading">ShippingMeth&#246;d1</h1>
-    <p class="documentDescription">Descripton of ShippingMeth&#246;d1</p>
+    ...
+    <h1 id="parent-fieldname-title" class="documentFirstHeading">
+    ShippingMeth&#246;d1
+    </h1>
+    ...
+    <div id="parent-fieldname-description" class="documentDescription">
+    Descripton of ShippingMeth&#246;d1
+    </div>
+    ...
     <dl><dt>Shipping To</dt>
     <dd>FI</dd>
     <dt>Minimum Delivery Days</dt>
@@ -39,7 +45,7 @@ Add ShippingMethod::
     <dt>Shipping fee for one kg</dt>
     <dd>1.0</dd>
     </dl></div>
-    </div>
+    ...
 
 Add one more ShoppingMethod::
 
@@ -55,9 +61,15 @@ Add one more ShoppingMethod::
     >>> print browser.bycss('#content')
     --- 1 ---
     <div id="content">
-    <div>
-    <h1 class="documentFirstHeading">ShippingMeth&#246;d2</h1>
-    <p class="documentDescription">Descripton of ShippingMeth&#246;d2</p>
+    ...
+    <h1 id="parent-fieldname-title" class="documentFirstHeading">
+    ShippingMeth&#246;d2
+    </h1>
+    ...
+    <div id="parent-fieldname-description" class="documentDescription">
+    Descripton of ShippingMeth&#246;d2
+    </div>
+    ...
     <dl><dt>Shipping To</dt>
     <dd>FI</dd>
     <dt>Minimum Delivery Days</dt>
@@ -67,7 +79,7 @@ Add one more ShoppingMethod::
     <dt>Shipping fee for one kg</dt>
     <dd>2.0</dd>
     </dl></div>
-    </div>
+    ...
 
 Add one another ShippingMethod which does not use function as shipping fee::
 
@@ -83,9 +95,15 @@ Add one another ShippingMethod which does not use function as shipping fee::
     >>> print browser.bycss('#content')
     --- 1 ---
     <div id="content">
-    <div>
-    <h1 class="documentFirstHeading">ShippingMeth&#246;d3</h1>
-    <p class="documentDescription">Descripton of ShippingMeth&#246;d3</p>
+    ...
+    <h1 id="parent-fieldname-title" class="documentFirstHeading">
+    ShippingMeth&#246;d3
+    </h1>
+    ...
+    <div id="parent-fieldname-description" class="documentDescription">
+    Descripton of ShippingMeth&#246;d3
+    </div>
+    ...
     <dl><dt>Shipping To</dt>
     <dd>FI</dd>
     <dt>Minimum Delivery Days</dt>
@@ -95,4 +113,4 @@ Add one another ShippingMethod which does not use function as shipping fee::
     <dt>Shipping fee for one kg</dt>
     <dd>10.0</dd>
     </dl></div>
-    </div>
+    ...

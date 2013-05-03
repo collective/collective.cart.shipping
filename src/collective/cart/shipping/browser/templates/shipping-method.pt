@@ -6,9 +6,7 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.cart.shipping">
   <body>
-    <div metal:fill-slot="main">
-      <h1 class="documentFirstHeading" tal:content="context/Title" />
-      <p class="documentDescription" tal:content="context/Description" />
+    <metal:text fill-slot="content-core">
       <dl>
         <dt i18n:translate="">Shipping To</dt>
         <dd
@@ -22,6 +20,6 @@
         <dt i18n:translate="">Shipping fee for one kg</dt>
         <dd tal:content="view/shipping_fee_for_one_kg" />
       </dl>
-    </div>
+    </metal:text>
   </body>
 </html>
