@@ -35,7 +35,7 @@ class TestSetup(IntegrationTestCase):
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-collective.cart.shipping:default'), u'1')
+            setup.getVersionForProfile('profile-collective.cart.shipping:default'), u'2')
 
     def get_record(self, name):
         """Get record by name.

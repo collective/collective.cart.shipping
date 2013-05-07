@@ -13,4 +13,14 @@
     title="Reimport registry"
     />
 
+  <genericsetup:upgradeStep
+    description=""
+    destination="2"
+    handler="collective.cart.shipping.upgrades.reimport_typeinfo"
+    profile="collective.cart.shipping:default"
+    sortkey="1"
+    source="1"
+    title="Reimport typeinfo"
+    />
+
 </configure>
