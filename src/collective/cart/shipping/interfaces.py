@@ -29,3 +29,15 @@ class IOrderShippingMethod(OrderShippingMethodSchema, IDexterityContainer):
 # Deprecated
 
 ICartShippingMethod = IOrderShippingMethod
+
+
+from zope.interface import Interface
+
+
+class IProductAnnotations(Interface):
+
+    weight_unit = Attribute('Weight Unit')
+    weight = Attribute('Weight')
+    height = Attribute('Height')
+    width = Attribute('Width')
+    depth = Attribute('Depth')
