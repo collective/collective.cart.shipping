@@ -8,4 +8,4 @@ Shipping method plug-in for `collective.cart.core
 Currently tested with
 ---------------------
 
-- Plone-4.3 with Python-2.7.x
+- Plone-4.3.2 with Python-2.7.x

@@ -1,30 +1,14 @@
 Change log
 ----------
 
-0.6.0.4 (2013-05-07)
-====================
+0.7 (2013-10-28)
+================
 
-- Added upgrade step. [taito]
-
-0.6.0.3 (2013-05-03)
-====================
-
-- Updated template. [taito]
-
-0.6.0.2 (2013-04-22)
-====================
-
-- Fixed imports. [taito]
-- Fixed not addable content type: ShippingMethod. [taito]
-
-0.6.0.1 (2013-04-20)
-====================
-
-- Moved test packages to extras_require. [taito]
-- Removed dependency from five.grok. [taito]
-- Moved cart related content types to order related ones. [taito]
-- Prepared to update AT content type to Dexterity one. [taito]
-- Tested with Plone-4.3. [taito]
+- Move test packages to extras_require. [taito]
+- Remove dependency from five.grok. [taito]
+- Move cart related content types to order related ones. [taito]
+- Prepare to update AT content type to Dexterity one. [taito]
+- Test with Plone-4.3.2. [taito]
 
 0.6 (2013-03-26)
 ================
