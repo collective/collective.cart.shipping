@@ -11,7 +11,7 @@ long_description = (
 
 setup(
     name='collective.cart.shipping',
-    version='0.7',
+    version='0.7.1',
     description="Adds shipping methods to Plone.",
     long_description=long_description,
     classifiers=[

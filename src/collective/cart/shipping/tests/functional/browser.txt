@@ -15,7 +15,12 @@ Add ShippingMethod::
     >>> browser.getLink(id="shippingmethod").click()
     >>> print browser.bycss('#vat')
     --- 1 ---
-    <select name="vat" id="vat"><option value="24.0">24%</option><option value="14.0">14%</option><option value="10.0">10%</option><option value="0.0">0%</option></select>
+    <select name="vat" id="vat">
+    <option value="24.0">24%</option>
+    <option value="14.0">14%</option>
+    <option value="10.0">10%</option>
+    <option value="0.0">0%</option>
+    </select>
 
     >>> browser.getControl(name='title').value = "ShippingMethöd1"
     >>> browser.getControl(name='description').value = "Descripton of ShippingMethöd1"
@@ -36,7 +41,8 @@ Add ShippingMethod::
     Descripton of ShippingMeth&#246;d1
     </div>
     ...
-    <dl><dt>Shipping To</dt>
+    <dl>
+    <dt>Shipping To</dt>
     <dd>FI</dd>
     <dt>Minimum Delivery Days</dt>
     <dd>3</dd>
@@ -44,7 +50,8 @@ Add ShippingMethod::
     <dd>14</dd>
     <dt>Shipping fee for one kg</dt>
     <dd>1.0</dd>
-    </dl></div>
+    </dl>
+    </div>
     ...
 
 Add one more ShoppingMethod::
@@ -70,7 +77,8 @@ Add one more ShoppingMethod::
     Descripton of ShippingMeth&#246;d2
     </div>
     ...
-    <dl><dt>Shipping To</dt>
+    <dl>
+    <dt>Shipping To</dt>
     <dd>FI</dd>
     <dt>Minimum Delivery Days</dt>
     <dd>5</dd>
@@ -78,7 +86,8 @@ Add one more ShoppingMethod::
     <dd>10</dd>
     <dt>Shipping fee for one kg</dt>
     <dd>2.0</dd>
-    </dl></div>
+    </dl>
+    </div>
     ...
 
 Add one another ShippingMethod which does not use function as shipping fee::
@@ -104,7 +113,8 @@ Add one another ShippingMethod which does not use function as shipping fee::
     Descripton of ShippingMeth&#246;d3
     </div>
     ...
-    <dl><dt>Shipping To</dt>
+    <dl>
+    <dt>Shipping To</dt>
     <dd>FI</dd>
     <dt>Minimum Delivery Days</dt>
     <dd>5</dd>
@@ -112,5 +122,6 @@ Add one another ShippingMethod which does not use function as shipping fee::
     <dd>10</dd>
     <dt>Shipping fee for one kg</dt>
     <dd>10.0</dd>
-    </dl></div>
+    </dl>
+    </div>
     ...
