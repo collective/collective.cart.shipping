@@ -3,6 +3,7 @@
 *.html
 *.mo
 *.pyc
+.ropeproject
 build
 coverage
 dist
